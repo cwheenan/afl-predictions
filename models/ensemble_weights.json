@@ -1,0 +1,6 @@
+{
+  "logistic": 0.25,
+  "random_forest": 0.25,
+  "gradient_boosting": 0.25,
+  "xgboost": 0.25
+}

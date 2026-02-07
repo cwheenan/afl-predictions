@@ -1,0 +1,194 @@
+{
+  "train_years": [
+    1990,
+    1991,
+    1992,
+    1993,
+    1994
+  ],
+  "test_year": 1995,
+  "n_train": 297,
+  "n_test": 185,
+  "train": {
+    "counts": {
+      "1": 170,
+      "0": 127
+    },
+    "per_class": {
+      "0": {
+        "n": 127,
+        "means": {
+          "diff_goals": -5.937007874015748,
+          "diff_behinds": -1.5118110236220472,
+          "diff_kicks": -17.31496062992126,
+          "diff_handballs": -1.2755905511811023,
+          "diff_disposals": -18.590551181102363,
+          "diff_marks": -9.37007874015748,
+          "diff_tackles": -2.779527559055118,
+          "diff_hitouts": -2.3070866141732282,
+          "diff_frees_for": 1.9448818897637796,
+          "diff_frees_against": -1.937007874015748,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 20.0,
+          "away_players": 20.0
+        },
+        "stds": {
+          "diff_goals": 5.029670744842529,
+          "diff_behinds": 5.189834602576438,
+          "diff_kicks": 21.002154382084566,
+          "diff_handballs": 30.87318587057829,
+          "diff_disposals": 42.08822071209071,
+          "diff_marks": 17.132445386295142,
+          "diff_tackles": 10.216632397850375,
+          "diff_hitouts": 10.572885214655445,
+          "diff_frees_for": 6.663460046216722,
+          "diff_frees_against": 6.656835645965569,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 0.0,
+          "away_players": 0.0
+        }
+      },
+      "1": {
+        "n": 170,
+        "means": {
+          "diff_goals": 6.511764705882353,
+          "diff_behinds": 2.8705882352941177,
+          "diff_kicks": 23.54705882352941,
+          "diff_handballs": 11.011764705882353,
+          "diff_disposals": 34.55882352941177,
+          "diff_marks": 11.470588235294118,
+          "diff_tackles": 3.264705882352941,
+          "diff_hitouts": 2.911764705882353,
+          "diff_frees_for": 0.6823529411764706,
+          "diff_frees_against": -0.6764705882352942,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 20.0,
+          "away_players": 20.0
+        },
+        "stds": {
+          "diff_goals": 4.331306477530452,
+          "diff_behinds": 6.045758913102947,
+          "diff_kicks": 21.054188121419944,
+          "diff_handballs": 30.569929192457792,
+          "diff_disposals": 41.54201635534898,
+          "diff_marks": 15.964893612370194,
+          "diff_tackles": 9.624023268752003,
+          "diff_hitouts": 9.87006605692068,
+          "diff_frees_for": 6.80882087943181,
+          "diff_frees_against": 6.8358634340997755,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 0.0,
+          "away_players": 0.0
+        }
+      }
+    },
+    "top_diff_features": {
+      "diff_disposals": 53.14937471051413,
+      "diff_kicks": 40.86201945345067,
+      "diff_marks": 20.840666975451597,
+      "diff_goals": 12.448772579898101,
+      "diff_handballs": 12.287355257063455,
+      "diff_tackles": 6.044233441408059,
+      "diff_hitouts": 5.218851320055581,
+      "diff_behinds": 4.382399258916164,
+      "diff_frees_for": 1.262528948587309,
+      "diff_frees_against": 1.2605372857804538
+    }
+  },
+  "train_zero_variance": [
+    "diff_avg_percent_played",
+    "home_players",
+    "away_players"
+  ],
+  "test": {
+    "counts": {
+      "1": 105,
+      "0": 80
+    },
+    "per_class": {
+      "0": {
+        "n": 80,
+        "means": {
+          "diff_goals": -5.575,
+          "diff_behinds": -3.025,
+          "diff_kicks": -18.15,
+          "diff_handballs": -8.025,
+          "diff_disposals": -26.175,
+          "diff_marks": -9.05,
+          "diff_tackles": 0.55,
+          "diff_hitouts": -1.7125,
+          "diff_frees_for": 1.175,
+          "diff_frees_against": -1.1875,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 21.0,
+          "away_players": 21.0
+        },
+        "stds": {
+          "diff_goals": 4.353886667556249,
+          "diff_behinds": 4.857396812848252,
+          "diff_kicks": 23.0421188371714,
+          "diff_handballs": 32.85949181791535,
+          "diff_disposals": 48.19705726612283,
+          "diff_marks": 20.239640262976106,
+          "diff_tackles": 10.53252947848663,
+          "diff_hitouts": 7.8550052574735245,
+          "diff_frees_for": 6.247581810669842,
+          "diff_frees_against": 6.152273944123775,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 0.0,
+          "away_players": 0.0
+        }
+      },
+      "1": {
+        "n": 105,
+        "means": {
+          "diff_goals": 5.819047619047619,
+          "diff_behinds": 2.9904761904761905,
+          "diff_kicks": 20.733333333333334,
+          "diff_handballs": 14.066666666666666,
+          "diff_disposals": 34.8,
+          "diff_marks": 8.60952380952381,
+          "diff_tackles": 2.3142857142857145,
+          "diff_hitouts": 2.980952380952381,
+          "diff_frees_for": 2.2285714285714286,
+          "diff_frees_against": -2.0761904761904764,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 21.0,
+          "away_players": 21.0
+        },
+        "stds": {
+          "diff_goals": 4.7732849364194765,
+          "diff_behinds": 4.691430891479039,
+          "diff_kicks": 22.203718792245777,
+          "diff_handballs": 25.687944892896997,
+          "diff_disposals": 35.72151904772421,
+          "diff_marks": 21.437967414996386,
+          "diff_tackles": 11.11678762201415,
+          "diff_hitouts": 8.920569307872496,
+          "diff_frees_for": 5.514416669856496,
+          "diff_frees_against": 5.586204226098224,
+          "diff_avg_percent_played": 0.0,
+          "home_players": 0.0,
+          "away_players": 0.0
+        }
+      }
+    },
+    "top_diff_features": {
+      "diff_disposals": 60.974999999999994,
+      "diff_kicks": 38.88333333333333,
+      "diff_handballs": 22.09166666666667,
+      "diff_marks": 17.65952380952381,
+      "diff_goals": 11.394047619047619,
+      "diff_behinds": 6.015476190476191,
+      "diff_hitouts": 4.693452380952381,
+      "diff_tackles": 1.7642857142857145,
+      "diff_frees_for": 1.0535714285714286,
+      "diff_frees_against": 0.8886904761904764
+    }
+  },
+  "test_zero_variance": [
+    "diff_avg_percent_played",
+    "home_players",
+    "away_players"
+  ]
+}

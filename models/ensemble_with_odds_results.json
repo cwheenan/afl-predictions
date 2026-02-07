@@ -1,0 +1,60 @@
+{
+  "train_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "test_years": [
+    2025
+  ],
+  "train_size": 481,
+  "test_size": 148,
+  "results": {
+    "rf": 0.7635135135135135,
+    "lr": 0.722972972972973,
+    "gb": 0.7432432432432432,
+    "xgb": 0.7364864864864865,
+    "top2_equal": 0.7567567567567568,
+    "weighted": 0.75,
+    "odds_as_member": 0.7837837837837838,
+    "odds_as_member_best": 0.7905405405405406
+  },
+  "best_approach": "odds_as_member_best",
+  "best_accuracy": 0.7905405405405406,
+  "feature_count": 32,
+  "feature_names": [
+    "away_conversion_rate",
+    "away_margin_20",
+    "away_players",
+    "away_recent_margin",
+    "away_win_pct_10",
+    "diff_avg_percent_played",
+    "diff_behinds",
+    "diff_conversion_rate",
+    "diff_disposals",
+    "diff_frees_against",
+    "diff_frees_for",
+    "diff_goals",
+    "diff_handballs",
+    "diff_hitouts",
+    "diff_kicks",
+    "diff_margin_20",
+    "diff_marks",
+    "diff_recent_margin",
+    "diff_tackles",
+    "diff_win_pct_10",
+    "h2h_home_win_pct",
+    "home_conversion_rate",
+    "home_margin_20",
+    "home_players",
+    "home_recent_margin",
+    "home_venue_win_pct",
+    "home_win_pct_10",
+    "odds_away_win_prob",
+    "odds_confidence",
+    "odds_home_favored",
+    "odds_home_win_prob",
+    "odds_spread"
+  ]
+}

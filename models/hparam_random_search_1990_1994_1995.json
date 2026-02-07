@@ -1,0 +1,30 @@
+{
+  "train_years": [
+    1990,
+    1991,
+    1992,
+    1993,
+    1994
+  ],
+  "test_year": 1995,
+  "n_train": 297,
+  "n_test": 185,
+  "best_params": {
+    "subsample": 0.6,
+    "reg_lambda": 2.0,
+    "reg_alpha": 1.0,
+    "n_estimators": 300,
+    "max_depth": 5,
+    "learning_rate": 0.02,
+    "gamma": 1.0,
+    "colsample_bytree": 0.7
+  },
+  "best_cv_auc": 0.6981449525452976,
+  "test_metrics": {
+    "acc": 0.6378378378378379,
+    "auc": 0.6586904761904764,
+    "brier": 0.23380963343482397
+  },
+  "search_time_sec": 2.6846954822540283,
+  "n_iter": 60
+}

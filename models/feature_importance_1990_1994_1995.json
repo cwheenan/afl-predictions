@@ -1,0 +1,76 @@
+{
+  "train_years": [
+    1990,
+    1991,
+    1992,
+    1993,
+    1994
+  ],
+  "test_year": 1995,
+  "n_train": 297,
+  "n_test": 185,
+  "lr_metrics": {
+    "acc": 0.654054054054054,
+    "auc": 0.7015476190476191,
+    "brier": 0.21710149435634446
+  },
+  "xgb_metrics": {
+    "acc": 0.5783783783783784,
+    "auc": 0.6108333333333333,
+    "brier": 0.3067786337509732
+  },
+  "permutation_importances": {
+    "diff_goals": 0.0,
+    "diff_behinds": 0.0,
+    "diff_kicks": -5.551115123125783e-18,
+    "diff_handballs": 0.0,
+    "diff_disposals": 0.0037837837837837564,
+    "diff_marks": 0.0,
+    "diff_tackles": 0.0,
+    "diff_hitouts": 0.025405405405405385,
+    "diff_frees_for": -0.0016216216216216439,
+    "diff_frees_against": 0.015405405405405376,
+    "diff_avg_percent_played": 0.0002702702702702453,
+    "home_players": 0.0018918918918918726,
+    "away_players": -0.0016216216216216495,
+    "home_recent_margin": 0.008918918918918889,
+    "away_recent_margin": 0.011081081081081056,
+    "diff_recent_margin": 0.027027027027027008
+  },
+  "permutation_ranked_features": [
+    "diff_recent_margin",
+    "diff_hitouts",
+    "diff_frees_against",
+    "away_recent_margin",
+    "home_recent_margin",
+    "diff_disposals",
+    "home_players",
+    "diff_avg_percent_played",
+    "diff_handballs",
+    "diff_behinds",
+    "diff_tackles",
+    "diff_marks",
+    "diff_goals",
+    "diff_kicks",
+    "diff_frees_for",
+    "away_players"
+  ],
+  "xgb_importances": {
+    "diff_goals": 0.0,
+    "diff_behinds": 0.0,
+    "diff_kicks": 0.05786767229437828,
+    "diff_handballs": 0.0,
+    "diff_disposals": 0.08537773787975311,
+    "diff_marks": 0.0,
+    "diff_tackles": 0.0,
+    "diff_hitouts": 0.08328254520893097,
+    "diff_frees_for": 0.05580757185816765,
+    "diff_frees_against": 0.05541985481977463,
+    "diff_avg_percent_played": 0.039566826075315475,
+    "home_players": 0.3704223334789276,
+    "away_players": 0.0328136570751667,
+    "home_recent_margin": 0.06808983534574509,
+    "away_recent_margin": 0.0696098580956459,
+    "diff_recent_margin": 0.08174204081296921
+  }
+}

@@ -1,0 +1,9 @@
+match_id,token,home_team,away_team,home_score,away_score,prob_home_win,pred
+1752,111420000308.html_160b9660,Richmond,Melbourne,,,0.96356600522995,1
+1753,051320000309.html_fcf6804d,Essendon,Port Adelaide,,,0.3071029782295227,0
+1754,121820000310.html_717d9dae,Kangaroos,West Coast,,,0.11905478686094284,0
+1755,010720000311.html_a9726b12,Adelaide,Western Bulldogs,,,0.07642918825149536,0
+1756,080920000311.html_d59a5d67,Fremantle,Geelong,,,0.8814204335212708,1
+1757,151620000312.html_a9c3a46d,St Kilda,Sydney,,,0.5158801674842834,1
+1758,031920000313.html_de5fd227,Carlton,Brisbane Lions,,,0.5437900424003601,1
+1759,041020000313.html_66594e94,Hawthorn,Collingwood,,,0.6044616103172302,1

@@ -1,0 +1,757 @@
+round,match_id,home_team,away_team,model,prediction_prob,prediction,actual,correct
+1,6551,Sydney,Hawthorn,logistic,0.2981290248178157,0,0,True
+1,6552,Greater Western Sydney,Collingwood,logistic,0.6674555710050517,1,1,True
+1,6553,Brisbane Lions,Geelong,logistic,0.6529212019053225,1,1,True
+1,6554,Gold Coast,Essendon,logistic,0.619197008223677,1,1,True
+1,6551,Sydney,Hawthorn,random_forest,0.477881014784316,0,0,True
+1,6552,Greater Western Sydney,Collingwood,random_forest,0.599636917121691,1,1,True
+1,6553,Brisbane Lions,Geelong,random_forest,0.5965302194736491,1,1,True
+1,6554,Gold Coast,Essendon,random_forest,0.5731454569364627,1,1,True
+1,6551,Sydney,Hawthorn,gradient_boosting,0.4584317570200524,0,0,True
+1,6552,Greater Western Sydney,Collingwood,gradient_boosting,0.6596136572441217,1,1,True
+1,6553,Brisbane Lions,Geelong,gradient_boosting,0.5460556431987585,1,1,True
+1,6554,Gold Coast,Essendon,gradient_boosting,0.5275420554720351,1,1,True
+1,6551,Sydney,Hawthorn,xgboost,0.32338228821754456,0,0,True
+1,6552,Greater Western Sydney,Collingwood,xgboost,0.5871272087097168,1,1,True
+1,6553,Brisbane Lions,Geelong,xgboost,0.415615051984787,0,1,False
+1,6554,Gold Coast,Essendon,xgboost,0.538239598274231,1,1,True
+2,6555,Richmond,Carlton,logistic,0.5113853845936959,1,1,True
+2,6556,Hawthorn,Essendon,logistic,0.8776969944746066,1,1,True
+2,6557,Geelong,Fremantle,logistic,0.5310655874929652,1,1,True
+2,6558,Sydney,Brisbane Lions,logistic,0.33075010993370907,0,0,True
+2,6559,Collingwood,Port Adelaide,logistic,0.35289052438294405,0,1,False
+2,6560,Western Bulldogs,North Melbourne,logistic,0.7689572433253672,1,1,True
+2,6561,Adelaide,St Kilda,logistic,0.6101907077312362,1,1,True
+2,6562,Melbourne,Greater Western Sydney,logistic,0.37874163661841775,0,0,True
+2,6563,West Coast,Gold Coast,logistic,0.40987253520850203,0,0,True
+2,6555,Richmond,Carlton,random_forest,0.47060406729443893,0,1,False
+2,6556,Hawthorn,Essendon,random_forest,0.9186704164149142,1,1,True
+2,6557,Geelong,Fremantle,random_forest,0.47011619315382824,0,1,False
+2,6558,Sydney,Brisbane Lions,random_forest,0.2890971920021929,0,0,True
+2,6559,Collingwood,Port Adelaide,random_forest,0.43840206722399566,0,1,False
+2,6560,Western Bulldogs,North Melbourne,random_forest,0.8649381020256699,1,1,True
+2,6561,Adelaide,St Kilda,random_forest,0.5826908694826485,1,1,True
+2,6562,Melbourne,Greater Western Sydney,random_forest,0.4442582171292945,0,0,True
+2,6563,West Coast,Gold Coast,random_forest,0.4192626585891861,0,0,True
+2,6555,Richmond,Carlton,gradient_boosting,0.3060051851209143,0,1,False
+2,6556,Hawthorn,Essendon,gradient_boosting,0.9762676793332632,1,1,True
+2,6557,Geelong,Fremantle,gradient_boosting,0.32258053289278416,0,1,False
+2,6558,Sydney,Brisbane Lions,gradient_boosting,0.32859454806044036,0,0,True
+2,6559,Collingwood,Port Adelaide,gradient_boosting,0.5595094446925681,1,1,True
+2,6560,Western Bulldogs,North Melbourne,gradient_boosting,0.9273156385625615,1,1,True
+2,6561,Adelaide,St Kilda,gradient_boosting,0.6428184825736163,1,1,True
+2,6562,Melbourne,Greater Western Sydney,gradient_boosting,0.40442632240909415,0,0,True
+2,6563,West Coast,Gold Coast,gradient_boosting,0.49431299660754313,0,0,True
+2,6555,Richmond,Carlton,xgboost,0.42872095108032227,0,1,False
+2,6556,Hawthorn,Essendon,xgboost,0.991576611995697,1,1,True
+2,6557,Geelong,Fremantle,xgboost,0.3976493179798126,0,1,False
+2,6558,Sydney,Brisbane Lions,xgboost,0.23957638442516327,0,0,True
+2,6559,Collingwood,Port Adelaide,xgboost,0.443672776222229,0,1,False
+2,6560,Western Bulldogs,North Melbourne,xgboost,0.9084644317626953,1,1,True
+2,6561,Adelaide,St Kilda,xgboost,0.5004256367683411,1,1,True
+2,6562,Melbourne,Greater Western Sydney,xgboost,0.41073787212371826,0,0,True
+2,6563,West Coast,Gold Coast,xgboost,0.5414746999740601,1,0,False
+3,6564,Carlton,Hawthorn,logistic,0.3020087409643293,0,0,True
+3,6565,Western Bulldogs,Collingwood,logistic,0.5703097363199698,1,0,False
+3,6566,Essendon,Adelaide,logistic,0.31421559709478997,0,0,True
+3,6567,Port Adelaide,Richmond,logistic,0.7405313975111764,1,1,True
+3,6568,St Kilda,Geelong,logistic,0.43226532426850095,0,1,False
+3,6569,Brisbane Lions,West Coast,logistic,0.8090872071974389,1,1,True
+3,6570,North Melbourne,Melbourne,logistic,0.6398913088689416,1,1,True
+3,6571,Fremantle,Sydney,logistic,0.7215090387087054,1,0,False
+3,6564,Carlton,Hawthorn,random_forest,0.3707396409844151,0,0,True
+3,6565,Western Bulldogs,Collingwood,random_forest,0.5763596024873667,1,0,False
+3,6566,Essendon,Adelaide,random_forest,0.31910142384535284,0,0,True
+3,6567,Port Adelaide,Richmond,random_forest,0.8068670205996448,1,1,True
+3,6568,St Kilda,Geelong,random_forest,0.519887581241789,1,1,True
+3,6569,Brisbane Lions,West Coast,random_forest,0.874123898633593,1,1,True
+3,6570,North Melbourne,Melbourne,random_forest,0.6138410782664295,1,1,True
+3,6571,Fremantle,Sydney,random_forest,0.7394649538661722,1,0,False
+3,6564,Carlton,Hawthorn,gradient_boosting,0.3376659349326413,0,0,True
+3,6565,Western Bulldogs,Collingwood,gradient_boosting,0.7098541188050974,1,0,False
+3,6566,Essendon,Adelaide,gradient_boosting,0.3810930120547019,0,0,True
+3,6567,Port Adelaide,Richmond,gradient_boosting,0.8806491403024667,1,1,True
+3,6568,St Kilda,Geelong,gradient_boosting,0.29036140789380527,0,1,False
+3,6569,Brisbane Lions,West Coast,gradient_boosting,0.888822331940927,1,1,True
+3,6570,North Melbourne,Melbourne,gradient_boosting,0.5099209074975318,1,1,True
+3,6571,Fremantle,Sydney,gradient_boosting,0.6794078658926471,1,0,False
+3,6564,Carlton,Hawthorn,xgboost,0.33093956112861633,0,0,True
+3,6565,Western Bulldogs,Collingwood,xgboost,0.6712203025817871,1,0,False
+3,6566,Essendon,Adelaide,xgboost,0.1331845372915268,0,0,True
+3,6567,Port Adelaide,Richmond,xgboost,0.9230078458786011,1,1,True
+3,6568,St Kilda,Geelong,xgboost,0.3344466984272003,0,1,False
+3,6569,Brisbane Lions,West Coast,xgboost,0.9131027460098267,1,1,True
+3,6570,North Melbourne,Melbourne,xgboost,0.5457736849784851,1,1,True
+3,6571,Fremantle,Sydney,xgboost,0.7701171636581421,1,0,False
+4,6572,Essendon,Port Adelaide,logistic,0.25992656866052183,0,1,False
+4,6573,Carlton,Western Bulldogs,logistic,0.3890009693651381,0,0,True
+4,6574,Melbourne,Gold Coast,logistic,0.2739240989940453,0,0,True
+4,6575,St Kilda,Richmond,logistic,0.6534925186773319,1,1,True
+4,6576,Hawthorn,Greater Western Sydney,logistic,0.6428122015436015,1,1,True
+4,6577,Adelaide,North Melbourne,logistic,0.6749932561830023,1,1,True
+4,6578,West Coast,Fremantle,logistic,0.5056694276837167,1,0,False
+4,6572,Essendon,Port Adelaide,random_forest,0.23133928752869323,0,1,False
+4,6573,Carlton,Western Bulldogs,random_forest,0.4227573934829977,0,0,True
+4,6574,Melbourne,Gold Coast,random_forest,0.35352681204864156,0,0,True
+4,6575,St Kilda,Richmond,random_forest,0.6185950257249894,1,1,True
+4,6576,Hawthorn,Greater Western Sydney,random_forest,0.6249416149373538,1,1,True
+4,6577,Adelaide,North Melbourne,random_forest,0.6459730837899396,1,1,True
+4,6578,West Coast,Fremantle,random_forest,0.44514681920221255,0,0,True
+4,6572,Essendon,Port Adelaide,gradient_boosting,0.3156595058671177,0,1,False
+4,6573,Carlton,Western Bulldogs,gradient_boosting,0.5312213997892321,1,0,False
+4,6574,Melbourne,Gold Coast,gradient_boosting,0.1693665187379803,0,0,True
+4,6575,St Kilda,Richmond,gradient_boosting,0.5366911316003639,1,1,True
+4,6576,Hawthorn,Greater Western Sydney,gradient_boosting,0.7811586605668824,1,1,True
+4,6577,Adelaide,North Melbourne,gradient_boosting,0.5898859948372129,1,1,True
+4,6578,West Coast,Fremantle,gradient_boosting,0.5346009172578593,1,0,False
+4,6572,Essendon,Port Adelaide,xgboost,0.22483639419078827,0,1,False
+4,6573,Carlton,Western Bulldogs,xgboost,0.4178600311279297,0,0,True
+4,6574,Melbourne,Gold Coast,xgboost,0.272014319896698,0,0,True
+4,6575,St Kilda,Richmond,xgboost,0.5745043754577637,1,1,True
+4,6576,Hawthorn,Greater Western Sydney,xgboost,0.756402850151062,1,1,True
+4,6577,Adelaide,North Melbourne,xgboost,0.6185197830200195,1,1,True
+4,6578,West Coast,Fremantle,xgboost,0.5861403942108154,1,0,False
+5,6579,Collingwood,Carlton,logistic,0.7447869630077814,1,1,True
+5,6580,Geelong,Melbourne,logistic,0.7976970195523726,1,1,True
+5,6581,Gold Coast,Adelaide,logistic,0.6102490454439721,1,1,True
+5,6582,Richmond,Brisbane Lions,logistic,0.28921354975121794,0,0,True
+5,6583,North Melbourne,Sydney,logistic,0.7070098142919385,1,0,False
+5,6584,Greater Western Sydney,West Coast,logistic,0.730227071400428,1,1,True
+5,6585,Port Adelaide,St Kilda,logistic,0.7050480263790561,1,0,False
+5,6586,Fremantle,Western Bulldogs,logistic,0.49071373081693337,0,1,False
+5,6579,Collingwood,Carlton,random_forest,0.7856779370886122,1,1,True
+5,6580,Geelong,Melbourne,random_forest,0.8567227528459495,1,1,True
+5,6581,Gold Coast,Adelaide,random_forest,0.5388634522932864,1,1,True
+5,6582,Richmond,Brisbane Lions,random_forest,0.27052908643555457,0,0,True
+5,6583,North Melbourne,Sydney,random_forest,0.6793335437126957,1,0,False
+5,6584,Greater Western Sydney,West Coast,random_forest,0.7493745030614825,1,1,True
+5,6585,Port Adelaide,St Kilda,random_forest,0.7109967419086004,1,0,False
+5,6586,Fremantle,Western Bulldogs,random_forest,0.4490931826470006,0,1,False
+5,6579,Collingwood,Carlton,gradient_boosting,0.7684539569492652,1,1,True
+5,6580,Geelong,Melbourne,gradient_boosting,0.8632522015385589,1,1,True
+5,6581,Gold Coast,Adelaide,gradient_boosting,0.23896569378785745,0,1,False
+5,6582,Richmond,Brisbane Lions,gradient_boosting,0.4214256151781317,0,0,True
+5,6583,North Melbourne,Sydney,gradient_boosting,0.6799155576946201,1,0,False
+5,6584,Greater Western Sydney,West Coast,gradient_boosting,0.7792712193721114,1,1,True
+5,6585,Port Adelaide,St Kilda,gradient_boosting,0.7624220432373516,1,0,False
+5,6586,Fremantle,Western Bulldogs,gradient_boosting,0.4424441421653274,0,1,False
+5,6579,Collingwood,Carlton,xgboost,0.7410995364189148,1,1,True
+5,6580,Geelong,Melbourne,xgboost,0.8411563038825989,1,1,True
+5,6581,Gold Coast,Adelaide,xgboost,0.5259833335876465,1,1,True
+5,6582,Richmond,Brisbane Lions,xgboost,0.254951536655426,0,0,True
+5,6583,North Melbourne,Sydney,xgboost,0.7909569144248962,1,0,False
+5,6584,Greater Western Sydney,West Coast,xgboost,0.5591979622840881,1,1,True
+5,6585,Port Adelaide,St Kilda,xgboost,0.6908085942268372,1,0,False
+5,6586,Fremantle,Western Bulldogs,xgboost,0.27470386028289795,0,1,False
+6,6587,Adelaide,Geelong,logistic,0.6897809499178346,1,0,False
+6,6588,Collingwood,Sydney,logistic,0.6116144406903798,1,1,True
+6,6589,North Melbourne,Gold Coast,logistic,0.27542002846816765,0,0,True
+6,6590,Carlton,West Coast,logistic,0.6570584486945888,1,1,True
+6,6591,Western Bulldogs,Brisbane Lions,logistic,0.48400043454826663,0,0,True
+6,6592,Melbourne,Essendon,logistic,0.6000167408857611,1,0,False
+6,6593,Richmond,Fremantle,logistic,0.3881831458966003,0,0,True
+6,6594,St Kilda,Greater Western Sydney,logistic,0.49924674803622343,0,0,True
+6,6595,Port Adelaide,Hawthorn,logistic,0.4093007406253364,0,1,False
+6,6587,Adelaide,Geelong,random_forest,0.7117210520093465,1,0,False
+6,6588,Collingwood,Sydney,random_forest,0.6161126124511067,1,1,True
+6,6589,North Melbourne,Gold Coast,random_forest,0.29209161965822206,0,0,True
+6,6590,Carlton,West Coast,random_forest,0.6496541178685117,1,1,True
+6,6591,Western Bulldogs,Brisbane Lions,random_forest,0.5028415558422015,1,0,False
+6,6592,Melbourne,Essendon,random_forest,0.6270841928308708,1,0,False
+6,6593,Richmond,Fremantle,random_forest,0.31089054667880545,0,0,True
+6,6594,St Kilda,Greater Western Sydney,random_forest,0.5255393614283651,1,0,False
+6,6595,Port Adelaide,Hawthorn,random_forest,0.5181545442445505,1,1,True
+6,6587,Adelaide,Geelong,gradient_boosting,0.4766738448267716,0,0,True
+6,6588,Collingwood,Sydney,gradient_boosting,0.6076462976903785,1,1,True
+6,6589,North Melbourne,Gold Coast,gradient_boosting,0.1476658249408517,0,0,True
+6,6590,Carlton,West Coast,gradient_boosting,0.7353149044715938,1,1,True
+6,6591,Western Bulldogs,Brisbane Lions,gradient_boosting,0.5771514678244599,1,0,False
+6,6592,Melbourne,Essendon,gradient_boosting,0.6466512526588976,1,0,False
+6,6593,Richmond,Fremantle,gradient_boosting,0.3466695203757814,0,0,True
+6,6594,St Kilda,Greater Western Sydney,gradient_boosting,0.50081033179391,1,0,False
+6,6595,Port Adelaide,Hawthorn,gradient_boosting,0.501913252346915,1,1,True
+6,6587,Adelaide,Geelong,xgboost,0.7388297319412231,1,0,False
+6,6588,Collingwood,Sydney,xgboost,0.6625269055366516,1,1,True
+6,6589,North Melbourne,Gold Coast,xgboost,0.1325933039188385,0,0,True
+6,6590,Carlton,West Coast,xgboost,0.5873391628265381,1,1,True
+6,6591,Western Bulldogs,Brisbane Lions,xgboost,0.6366349458694458,1,0,False
+6,6592,Melbourne,Essendon,xgboost,0.5270912051200867,1,0,False
+6,6593,Richmond,Fremantle,xgboost,0.36185911297798157,0,0,True
+6,6594,St Kilda,Greater Western Sydney,xgboost,0.45962274074554443,0,0,True
+6,6595,Port Adelaide,Hawthorn,xgboost,0.49963119626045227,0,1,False
+7,6596,Brisbane Lions,Collingwood,logistic,0.5821761780219922,1,0,False
+7,6597,North Melbourne,Carlton,logistic,0.4646984092423016,0,0,True
+7,6598,West Coast,Essendon,logistic,0.3043728915514839,0,0,True
+7,6599,Melbourne,Fremantle,logistic,0.3374452876901838,0,1,False
+7,6600,Adelaide,Greater Western Sydney,logistic,0.58769181071456,1,1,True
+7,6601,Richmond,Gold Coast,logistic,0.14187406225632282,0,1,False
+7,6602,Sydney,Port Adelaide,logistic,0.5892047883635833,1,0,False
+7,6603,Western Bulldogs,St Kilda,logistic,0.5748805089514943,1,1,True
+7,6604,Geelong,Hawthorn,logistic,0.6515585323866068,1,1,True
+7,6596,Brisbane Lions,Collingwood,random_forest,0.5979302362508134,1,0,False
+7,6597,North Melbourne,Carlton,random_forest,0.44313612109635064,0,0,True
+7,6598,West Coast,Essendon,random_forest,0.4052490290918621,0,0,True
+7,6599,Melbourne,Fremantle,random_forest,0.33470386760700677,0,1,False
+7,6600,Adelaide,Greater Western Sydney,random_forest,0.6343273452367386,1,1,True
+7,6601,Richmond,Gold Coast,random_forest,0.20120393645691587,0,1,False
+7,6602,Sydney,Port Adelaide,random_forest,0.6395868361985526,1,0,False
+7,6603,Western Bulldogs,St Kilda,random_forest,0.42222162756194365,0,1,False
+7,6604,Geelong,Hawthorn,random_forest,0.6412225004142639,1,1,True
+7,6596,Brisbane Lions,Collingwood,gradient_boosting,0.551543648402987,1,0,False
+7,6597,North Melbourne,Carlton,gradient_boosting,0.34191761772573687,0,0,True
+7,6598,West Coast,Essendon,gradient_boosting,0.2543971650295927,0,0,True
+7,6599,Melbourne,Fremantle,gradient_boosting,0.25302083593136276,0,1,False
+7,6600,Adelaide,Greater Western Sydney,gradient_boosting,0.5393319016811136,1,1,True
+7,6601,Richmond,Gold Coast,gradient_boosting,0.0879898593271128,0,1,False
+7,6602,Sydney,Port Adelaide,gradient_boosting,0.6436653106878777,1,0,False
+7,6603,Western Bulldogs,St Kilda,gradient_boosting,0.4373045713251894,0,1,False
+7,6604,Geelong,Hawthorn,gradient_boosting,0.6567031630288295,1,1,True
+7,6596,Brisbane Lions,Collingwood,xgboost,0.5485531687736511,1,0,False
+7,6597,North Melbourne,Carlton,xgboost,0.3577095866203308,0,0,True
+7,6598,West Coast,Essendon,xgboost,0.46956807374954224,0,0,True
+7,6599,Melbourne,Fremantle,xgboost,0.2879117727279663,0,1,False
+7,6600,Adelaide,Greater Western Sydney,xgboost,0.5727866888046265,1,1,True
+7,6601,Richmond,Gold Coast,xgboost,0.23154138028621674,0,1,False
+7,6602,Sydney,Port Adelaide,xgboost,0.7128833532333374,1,0,False
+7,6603,Western Bulldogs,St Kilda,xgboost,0.26126232743263245,0,1,False
+7,6604,Geelong,Hawthorn,xgboost,0.7041619420051575,1,1,True
+8,6605,Melbourne,Richmond,logistic,0.607740330794372,1,1,True
+8,6606,Collingwood,Essendon,logistic,0.7749315712272596,1,1,True
+8,6607,Fremantle,Adelaide,logistic,0.608829765920347,1,1,True
+8,6608,St Kilda,Brisbane Lions,logistic,0.5337095966877279,1,0,False
+8,6609,Port Adelaide,North Melbourne,logistic,0.7979790346128193,1,1,True
+8,6610,Greater Western Sydney,Western Bulldogs,logistic,0.6418493764864052,1,0,False
+8,6611,Gold Coast,Sydney,logistic,0.7310951612668685,1,1,True
+8,6612,Carlton,Geelong,logistic,0.5555517341383456,1,1,True
+8,6613,Hawthorn,West Coast,logistic,0.755496739310354,1,1,True
+8,6605,Melbourne,Richmond,random_forest,0.6529999677419039,1,1,True
+8,6606,Collingwood,Essendon,random_forest,0.8283247895457131,1,1,True
+8,6607,Fremantle,Adelaide,random_forest,0.5859727199734286,1,1,True
+8,6608,St Kilda,Brisbane Lions,random_forest,0.47817560836643536,0,0,True
+8,6609,Port Adelaide,North Melbourne,random_forest,0.8610111779243593,1,1,True
+8,6610,Greater Western Sydney,Western Bulldogs,random_forest,0.6326829928604486,1,0,False
+8,6611,Gold Coast,Sydney,random_forest,0.7190761084650883,1,1,True
+8,6612,Carlton,Geelong,random_forest,0.6000540941245859,1,1,True
+8,6613,Hawthorn,West Coast,random_forest,0.756781517139702,1,1,True
+8,6605,Melbourne,Richmond,gradient_boosting,0.5888481702996746,1,1,True
+8,6606,Collingwood,Essendon,gradient_boosting,0.8019815734560225,1,1,True
+8,6607,Fremantle,Adelaide,gradient_boosting,0.597085494140096,1,1,True
+8,6608,St Kilda,Brisbane Lions,gradient_boosting,0.5208913127572676,1,0,False
+8,6609,Port Adelaide,North Melbourne,gradient_boosting,0.7641800147335674,1,1,True
+8,6610,Greater Western Sydney,Western Bulldogs,gradient_boosting,0.696495435359069,1,0,False
+8,6611,Gold Coast,Sydney,gradient_boosting,0.81139375699855,1,1,True
+8,6612,Carlton,Geelong,gradient_boosting,0.6826290350739865,1,1,True
+8,6613,Hawthorn,West Coast,gradient_boosting,0.589398010797525,1,1,True
+8,6605,Melbourne,Richmond,xgboost,0.605995237827301,1,1,True
+8,6606,Collingwood,Essendon,xgboost,0.7691176533699036,1,1,True
+8,6607,Fremantle,Adelaide,xgboost,0.5486965775489807,1,1,True
+8,6608,St Kilda,Brisbane Lions,xgboost,0.42462217807769775,0,0,True
+8,6609,Port Adelaide,North Melbourne,xgboost,0.8053764700889587,1,1,True
+8,6610,Greater Western Sydney,Western Bulldogs,xgboost,0.7477733492851257,1,0,False
+8,6611,Gold Coast,Sydney,xgboost,0.8747283220291138,1,1,True
+8,6612,Carlton,Geelong,xgboost,0.6253071427345276,1,1,True
+8,6613,Hawthorn,West Coast,xgboost,0.607251763343811,1,1,True
+9,6614,Essendon,North Melbourne,logistic,0.7121431414842877,1,1,True
+9,6615,St Kilda,Fremantle,logistic,0.3931185956969525,0,1,False
+9,6616,Western Bulldogs,Port Adelaide,logistic,0.5777156374720206,1,1,True
+9,6617,Adelaide,Carlton,logistic,0.4986255288569676,0,1,False
+9,6618,West Coast,Melbourne,logistic,0.4294381533149591,0,0,True
+9,6619,Collingwood,Geelong,logistic,0.6789746908476606,1,0,False
+9,6620,Sydney,Greater Western Sydney,logistic,0.49818439704680145,0,1,False
+9,6621,Hawthorn,Richmond,logistic,0.7530237997199121,1,1,True
+9,6622,Brisbane Lions,Gold Coast,logistic,0.4661568790128437,0,1,False
+9,6614,Essendon,North Melbourne,random_forest,0.7107531790210803,1,1,True
+9,6615,St Kilda,Fremantle,random_forest,0.4396170515278081,0,1,False
+9,6616,Western Bulldogs,Port Adelaide,random_forest,0.5225060930906599,1,1,True
+9,6617,Adelaide,Carlton,random_forest,0.5132498391119668,1,1,True
+9,6618,West Coast,Melbourne,random_forest,0.39535622722067837,0,0,True
+9,6619,Collingwood,Geelong,random_forest,0.6646077241473201,1,0,False
+9,6620,Sydney,Greater Western Sydney,random_forest,0.5073386154173025,1,1,True
+9,6621,Hawthorn,Richmond,random_forest,0.7945064367980146,1,1,True
+9,6622,Brisbane Lions,Gold Coast,random_forest,0.3845340141680599,0,1,False
+9,6614,Essendon,North Melbourne,gradient_boosting,0.7038692486983574,1,1,True
+9,6615,St Kilda,Fremantle,gradient_boosting,0.5215187106416013,1,1,True
+9,6616,Western Bulldogs,Port Adelaide,gradient_boosting,0.3663539016200387,0,1,False
+9,6617,Adelaide,Carlton,gradient_boosting,0.3541609550351014,0,1,False
+9,6618,West Coast,Melbourne,gradient_boosting,0.4491117384702535,0,0,True
+9,6619,Collingwood,Geelong,gradient_boosting,0.6287246022705025,1,0,False
+9,6620,Sydney,Greater Western Sydney,gradient_boosting,0.42548923535831273,0,1,False
+9,6621,Hawthorn,Richmond,gradient_boosting,0.7200963960632575,1,1,True
+9,6622,Brisbane Lions,Gold Coast,gradient_boosting,0.2061182726535797,0,1,False
+9,6614,Essendon,North Melbourne,xgboost,0.7544883489608765,1,1,True
+9,6615,St Kilda,Fremantle,xgboost,0.43894731998443604,0,1,False
+9,6616,Western Bulldogs,Port Adelaide,xgboost,0.5042025446891785,1,1,True
+9,6617,Adelaide,Carlton,xgboost,0.5113185048103333,1,1,True
+9,6618,West Coast,Melbourne,xgboost,0.33833301067352295,0,0,True
+9,6619,Collingwood,Geelong,xgboost,0.6884633898735046,1,0,False
+9,6620,Sydney,Greater Western Sydney,xgboost,0.5683432817459106,1,1,True
+9,6621,Hawthorn,Richmond,xgboost,0.7890241146087646,1,1,True
+9,6622,Brisbane Lions,Gold Coast,xgboost,0.496711403131485,0,1,False
+10,6623,Fremantle,Collingwood,logistic,0.4733275113975657,0,0,True
+10,6624,St Kilda,Carlton,logistic,0.4389701456706632,0,0,True
+10,6625,Melbourne,Hawthorn,logistic,0.5142739231675642,1,0,False
+10,6626,Essendon,Sydney,logistic,0.6391362144942774,1,1,True
+10,6627,Gold Coast,Western Bulldogs,logistic,0.535035390294319,1,1,True
+10,6628,Port Adelaide,Adelaide,logistic,0.5141365857740161,1,0,False
+10,6629,Richmond,West Coast,logistic,0.6505922614656564,1,1,True
+10,6630,Geelong,Greater Western Sydney,logistic,0.5773083297578812,1,0,False
+10,6631,North Melbourne,Brisbane Lions,logistic,0.33395889765617937,0,0,True
+10,6623,Fremantle,Collingwood,random_forest,0.5133807624469882,1,0,False
+10,6624,St Kilda,Carlton,random_forest,0.4092666679687265,0,0,True
+10,6625,Melbourne,Hawthorn,random_forest,0.4439817604565206,0,0,True
+10,6626,Essendon,Sydney,random_forest,0.634237628183436,1,1,True
+10,6627,Gold Coast,Western Bulldogs,random_forest,0.5151024720897789,1,1,True
+10,6628,Port Adelaide,Adelaide,random_forest,0.49631978426046225,0,0,True
+10,6629,Richmond,West Coast,random_forest,0.7605719598769438,1,1,True
+10,6630,Geelong,Greater Western Sydney,random_forest,0.6201478139088061,1,0,False
+10,6631,North Melbourne,Brisbane Lions,random_forest,0.31705119811799454,0,0,True
+10,6623,Fremantle,Collingwood,gradient_boosting,0.5665571355017384,1,0,False
+10,6624,St Kilda,Carlton,gradient_boosting,0.39509652015548524,0,0,True
+10,6625,Melbourne,Hawthorn,gradient_boosting,0.36078152266380314,0,0,True
+10,6626,Essendon,Sydney,gradient_boosting,0.7085325085077664,1,1,True
+10,6627,Gold Coast,Western Bulldogs,gradient_boosting,0.44430696701480193,0,1,False
+10,6628,Port Adelaide,Adelaide,gradient_boosting,0.7000120689527404,1,0,False
+10,6629,Richmond,West Coast,gradient_boosting,0.8385838870134478,1,1,True
+10,6630,Geelong,Greater Western Sydney,gradient_boosting,0.5921205056054741,1,0,False
+10,6631,North Melbourne,Brisbane Lions,gradient_boosting,0.4047700174172814,0,0,True
+10,6623,Fremantle,Collingwood,xgboost,0.5526668429374695,1,0,False
+10,6624,St Kilda,Carlton,xgboost,0.46087855100631714,0,0,True
+10,6625,Melbourne,Hawthorn,xgboost,0.45720353722572327,0,0,True
+10,6626,Essendon,Sydney,xgboost,0.7639625072479248,1,1,True
+10,6627,Gold Coast,Western Bulldogs,xgboost,0.5269983410835266,1,1,True
+10,6628,Port Adelaide,Adelaide,xgboost,0.3986889719963074,0,0,True
+10,6629,Richmond,West Coast,xgboost,0.8554889559745789,1,1,True
+10,6630,Geelong,Greater Western Sydney,xgboost,0.7218698263168335,1,0,False
+10,6631,North Melbourne,Brisbane Lions,xgboost,0.4375666677951813,0,0,True
+11,6632,Gold Coast,Hawthorn,logistic,0.5859714097919386,1,1,True
+11,6633,Sydney,Carlton,logistic,0.4166204846438601,0,1,False
+11,6634,Collingwood,Adelaide,logistic,0.6542476244421543,1,1,True
+11,6635,Port Adelaide,Geelong,logistic,0.5805358298320363,1,0,False
+11,6636,Greater Western Sydney,Fremantle,logistic,0.5261616710239184,1,0,False
+11,6637,Western Bulldogs,Essendon,logistic,0.7147845864250837,1,1,True
+11,6638,Richmond,North Melbourne,logistic,0.5614966300212748,1,0,False
+11,6639,Brisbane Lions,Melbourne,logistic,0.6128218397751442,1,0,False
+11,6640,West Coast,St Kilda,logistic,0.5409953650088792,1,1,True
+11,6632,Gold Coast,Hawthorn,random_forest,0.5591259537695235,1,1,True
+11,6633,Sydney,Carlton,random_forest,0.46145866695414767,0,1,False
+11,6634,Collingwood,Adelaide,random_forest,0.6103175721602851,1,1,True
+11,6635,Port Adelaide,Geelong,random_forest,0.5315082962003673,1,0,False
+11,6636,Greater Western Sydney,Fremantle,random_forest,0.542506159340965,1,0,False
+11,6637,Western Bulldogs,Essendon,random_forest,0.7010922843718717,1,1,True
+11,6638,Richmond,North Melbourne,random_forest,0.5586753905788401,1,0,False
+11,6639,Brisbane Lions,Melbourne,random_forest,0.6424386065798682,1,0,False
+11,6640,West Coast,St Kilda,random_forest,0.45389453712284594,0,1,False
+11,6632,Gold Coast,Hawthorn,gradient_boosting,0.4131060242537856,0,1,False
+11,6633,Sydney,Carlton,gradient_boosting,0.5249195685658816,1,1,True
+11,6634,Collingwood,Adelaide,gradient_boosting,0.6093869016146316,1,1,True
+11,6635,Port Adelaide,Geelong,gradient_boosting,0.49978845302257524,0,0,True
+11,6636,Greater Western Sydney,Fremantle,gradient_boosting,0.5406415492145332,1,0,False
+11,6637,Western Bulldogs,Essendon,gradient_boosting,0.6928298554764859,1,1,True
+11,6638,Richmond,North Melbourne,gradient_boosting,0.5149346869767871,1,0,False
+11,6639,Brisbane Lions,Melbourne,gradient_boosting,0.710538654384988,1,0,False
+11,6640,West Coast,St Kilda,gradient_boosting,0.46867483948483163,0,1,False
+11,6632,Gold Coast,Hawthorn,xgboost,0.4676102101802826,0,1,False
+11,6633,Sydney,Carlton,xgboost,0.37385866045951843,0,1,False
+11,6634,Collingwood,Adelaide,xgboost,0.659260630607605,1,1,True
+11,6635,Port Adelaide,Geelong,xgboost,0.4676920473575592,0,0,True
+11,6636,Greater Western Sydney,Fremantle,xgboost,0.305846244096756,0,0,True
+11,6637,Western Bulldogs,Essendon,xgboost,0.7492350339889526,1,1,True
+11,6638,Richmond,North Melbourne,xgboost,0.5057405233383179,1,0,False
+11,6639,Brisbane Lions,Melbourne,xgboost,0.7249258160591125,1,0,False
+11,6640,West Coast,St Kilda,xgboost,0.478846937417984,0,1,False
+12,6641,Geelong,Western Bulldogs,logistic,0.39825755303081656,0,1,False
+12,6642,Essendon,Richmond,logistic,0.49774542138348943,0,1,False
+12,6643,Carlton,Greater Western Sydney,logistic,0.6898061078585135,1,0,False
+12,6644,Hawthorn,Brisbane Lions,logistic,0.7044243303485508,1,0,False
+12,6645,North Melbourne,Collingwood,logistic,0.3881876625550398,0,0,True
+12,6646,Fremantle,Port Adelaide,logistic,0.6653623854087325,1,1,True
+12,6647,Adelaide,West Coast,logistic,0.6795052380977761,1,1,True
+12,6648,Melbourne,Sydney,logistic,0.6367912610184808,1,1,True
+12,6649,St Kilda,Gold Coast,logistic,0.4159174327054111,0,0,True
+12,6641,Geelong,Western Bulldogs,random_forest,0.4080419529333979,0,1,False
+12,6642,Essendon,Richmond,random_forest,0.510803035254663,1,1,True
+12,6643,Carlton,Greater Western Sydney,random_forest,0.7448766355396143,1,0,False
+12,6644,Hawthorn,Brisbane Lions,random_forest,0.5991976173912122,1,0,False
+12,6645,North Melbourne,Collingwood,random_forest,0.478662683564847,0,0,True
+12,6646,Fremantle,Port Adelaide,random_forest,0.7329259820191144,1,1,True
+12,6647,Adelaide,West Coast,random_forest,0.7072341089015929,1,1,True
+12,6648,Melbourne,Sydney,random_forest,0.6689719747519856,1,1,True
+12,6649,St Kilda,Gold Coast,random_forest,0.396719320924682,0,0,True
+12,6641,Geelong,Western Bulldogs,gradient_boosting,0.5586859753179569,1,1,True
+12,6642,Essendon,Richmond,gradient_boosting,0.3554944835354392,0,1,False
+12,6643,Carlton,Greater Western Sydney,gradient_boosting,0.8337478843642688,1,0,False
+12,6644,Hawthorn,Brisbane Lions,gradient_boosting,0.5819048053762438,1,0,False
+12,6645,North Melbourne,Collingwood,gradient_boosting,0.5286657394801602,1,0,False
+12,6646,Fremantle,Port Adelaide,gradient_boosting,0.7405641448041076,1,1,True
+12,6647,Adelaide,West Coast,gradient_boosting,0.6370210350734422,1,1,True
+12,6648,Melbourne,Sydney,gradient_boosting,0.6464675766027526,1,1,True
+12,6649,St Kilda,Gold Coast,gradient_boosting,0.30256744837487054,0,0,True
+12,6641,Geelong,Western Bulldogs,xgboost,0.3344508111476898,0,1,False
+12,6642,Essendon,Richmond,xgboost,0.7367796301841736,1,1,True
+12,6643,Carlton,Greater Western Sydney,xgboost,0.8316185474395752,1,0,False
+12,6644,Hawthorn,Brisbane Lions,xgboost,0.7621967792510986,1,0,False
+12,6645,North Melbourne,Collingwood,xgboost,0.4669259786605835,0,0,True
+12,6646,Fremantle,Port Adelaide,xgboost,0.7154891490936279,1,1,True
+12,6647,Adelaide,West Coast,xgboost,0.65190589427948,1,1,True
+12,6648,Melbourne,Sydney,xgboost,0.7273529171943665,1,1,True
+12,6649,St Kilda,Gold Coast,xgboost,0.3432843089103699,0,0,True
+13,6650,Brisbane Lions,Essendon,logistic,0.7319123116501991,1,1,True
+13,6651,Collingwood,Hawthorn,logistic,0.6019887685709773,1,1,True
+13,6652,Gold Coast,Fremantle,logistic,0.6374952382744592,1,0,False
+13,6653,Greater Western Sydney,Richmond,logistic,0.6273059691762322,1,1,True
+13,6654,Sydney,Adelaide,logistic,0.42944451584549764,0,0,True
+13,6655,Melbourne,St Kilda,logistic,0.7119490062743247,1,0,False
+13,6656,West Coast,Geelong,logistic,0.4315708539651015,0,0,True
+13,6650,Brisbane Lions,Essendon,random_forest,0.8170098738211726,1,1,True
+13,6651,Collingwood,Hawthorn,random_forest,0.5792517195773911,1,1,True
+13,6652,Gold Coast,Fremantle,random_forest,0.6227117067126146,1,0,False
+13,6653,Greater Western Sydney,Richmond,random_forest,0.6606837769911609,1,1,True
+13,6654,Sydney,Adelaide,random_forest,0.4587426025366892,0,0,True
+13,6655,Melbourne,St Kilda,random_forest,0.7180595233169007,1,0,False
+13,6656,West Coast,Geelong,random_forest,0.49040527603695666,0,0,True
+13,6650,Brisbane Lions,Essendon,gradient_boosting,0.7694963133868352,1,1,True
+13,6651,Collingwood,Hawthorn,gradient_boosting,0.7670906042650384,1,1,True
+13,6652,Gold Coast,Fremantle,gradient_boosting,0.8176413752784034,1,0,False
+13,6653,Greater Western Sydney,Richmond,gradient_boosting,0.6613605173851592,1,1,True
+13,6654,Sydney,Adelaide,gradient_boosting,0.4053734945001006,0,0,True
+13,6655,Melbourne,St Kilda,gradient_boosting,0.72130683160159,1,0,False
+13,6656,West Coast,Geelong,gradient_boosting,0.5583937579860458,1,0,False
+13,6650,Brisbane Lions,Essendon,xgboost,0.7991889119148254,1,1,True
+13,6651,Collingwood,Hawthorn,xgboost,0.7624748349189758,1,1,True
+13,6652,Gold Coast,Fremantle,xgboost,0.5783781409263611,1,0,False
+13,6653,Greater Western Sydney,Richmond,xgboost,0.70002681016922,1,1,True
+13,6654,Sydney,Adelaide,xgboost,0.49706682562828064,0,0,True
+13,6655,Melbourne,St Kilda,xgboost,0.6743931174278259,1,0,False
+13,6656,West Coast,Geelong,xgboost,0.7968880534172058,1,0,False
+14,6657,Western Bulldogs,Hawthorn,logistic,0.7923590541276659,1,0,False
+14,6658,Adelaide,Brisbane Lions,logistic,0.7490770837264018,1,1,True
+14,6659,Richmond,Sydney,logistic,0.5705774370664435,1,0,False
+14,6660,Geelong,Gold Coast,logistic,0.635723500353711,1,1,True
+14,6661,Greater Western Sydney,Port Adelaide,logistic,0.7339757541915971,1,0,False
+14,6662,North Melbourne,West Coast,logistic,0.642951325712346,1,1,True
+14,6663,Carlton,Essendon,logistic,0.5676894949716482,1,1,True
+14,6664,Melbourne,Collingwood,logistic,0.4912540156468223,0,0,True
+14,6657,Western Bulldogs,Hawthorn,random_forest,0.7600700929517815,1,0,False
+14,6658,Adelaide,Brisbane Lions,random_forest,0.6245614237849216,1,1,True
+14,6659,Richmond,Sydney,random_forest,0.5864516654036472,1,0,False
+14,6660,Geelong,Gold Coast,random_forest,0.6519271635595526,1,1,True
+14,6661,Greater Western Sydney,Port Adelaide,random_forest,0.7962588201021794,1,0,False
+14,6662,North Melbourne,West Coast,random_forest,0.6727286434016994,1,1,True
+14,6663,Carlton,Essendon,random_forest,0.4818094068206451,0,1,False
+14,6664,Melbourne,Collingwood,random_forest,0.5698482613152762,1,0,False
+14,6657,Western Bulldogs,Hawthorn,gradient_boosting,0.8583991417885455,1,0,False
+14,6658,Adelaide,Brisbane Lions,gradient_boosting,0.35199024945762986,0,1,False
+14,6659,Richmond,Sydney,gradient_boosting,0.4618519942764138,0,0,True
+14,6660,Geelong,Gold Coast,gradient_boosting,0.6312994073468345,1,1,True
+14,6661,Greater Western Sydney,Port Adelaide,gradient_boosting,0.7879552689769793,1,0,False
+14,6662,North Melbourne,West Coast,gradient_boosting,0.6852756891742217,1,1,True
+14,6663,Carlton,Essendon,gradient_boosting,0.5942213707171042,1,1,True
+14,6664,Melbourne,Collingwood,gradient_boosting,0.5204804907622892,1,0,False
+14,6657,Western Bulldogs,Hawthorn,xgboost,0.7378702759742737,1,0,False
+14,6658,Adelaide,Brisbane Lions,xgboost,0.4513847529888153,0,1,False
+14,6659,Richmond,Sydney,xgboost,0.5426322817802429,1,0,False
+14,6660,Geelong,Gold Coast,xgboost,0.7533225417137146,1,1,True
+14,6661,Greater Western Sydney,Port Adelaide,xgboost,0.8228029608726501,1,0,False
+14,6662,North Melbourne,West Coast,xgboost,0.7455273270606995,1,1,True
+14,6663,Carlton,Essendon,xgboost,0.4759656488895416,0,1,False
+14,6664,Melbourne,Collingwood,xgboost,0.5525385141372681,1,0,False
+15,6665,St Kilda,Western Bulldogs,logistic,0.4583478455817047,0,0,True
+15,6666,Hawthorn,Adelaide,logistic,0.38784368176881323,0,1,False
+15,6667,Brisbane Lions,Greater Western Sydney,logistic,0.6049888668529183,1,0,False
+15,6668,Essendon,Geelong,logistic,0.3517085680614694,0,0,True
+15,6669,North Melbourne,Fremantle,logistic,0.5180089973361448,1,0,False
+15,6670,Port Adelaide,Melbourne,logistic,0.38814911753382403,0,1,False
+15,6671,West Coast,Carlton,logistic,0.5691249556689792,1,0,False
+15,6665,St Kilda,Western Bulldogs,random_forest,0.4955610552298068,0,0,True
+15,6666,Hawthorn,Adelaide,random_forest,0.4561748606463551,0,1,False
+15,6667,Brisbane Lions,Greater Western Sydney,random_forest,0.6715333664570832,1,0,False
+15,6668,Essendon,Geelong,random_forest,0.3943758333398535,0,0,True
+15,6669,North Melbourne,Fremantle,random_forest,0.5094627077733043,1,0,False
+15,6670,Port Adelaide,Melbourne,random_forest,0.36352403024953955,0,1,False
+15,6671,West Coast,Carlton,random_forest,0.590782155551545,1,0,False
+15,6665,St Kilda,Western Bulldogs,gradient_boosting,0.4738057377942633,0,0,True
+15,6666,Hawthorn,Adelaide,gradient_boosting,0.2965530345424398,0,1,False
+15,6667,Brisbane Lions,Greater Western Sydney,gradient_boosting,0.7445004422032236,1,0,False
+15,6668,Essendon,Geelong,gradient_boosting,0.24355755092756937,0,0,True
+15,6669,North Melbourne,Fremantle,gradient_boosting,0.43308078620302287,0,0,True
+15,6670,Port Adelaide,Melbourne,gradient_boosting,0.3121958799612663,0,1,False
+15,6671,West Coast,Carlton,gradient_boosting,0.6447197063513428,1,0,False
+15,6665,St Kilda,Western Bulldogs,xgboost,0.5294965505599976,1,0,False
+15,6666,Hawthorn,Adelaide,xgboost,0.6129546761512756,1,1,True
+15,6667,Brisbane Lions,Greater Western Sydney,xgboost,0.7419382333755493,1,0,False
+15,6668,Essendon,Geelong,xgboost,0.22204725444316864,0,0,True
+15,6669,North Melbourne,Fremantle,xgboost,0.40610384941101074,0,0,True
+15,6670,Port Adelaide,Melbourne,xgboost,0.2670089602470398,0,1,False
+15,6671,West Coast,Carlton,xgboost,0.6644697189331055,1,0,False
+16,6672,Fremantle,Essendon,logistic,0.8034951753438109,1,1,True
+16,6673,Geelong,Brisbane Lions,logistic,0.7892218460399592,1,0,False
+16,6674,Carlton,North Melbourne,logistic,0.6108914048478928,1,0,False
+16,6675,Port Adelaide,Sydney,logistic,0.5656077826373506,1,0,False
+16,6676,Collingwood,St Kilda,logistic,0.7704728706942596,1,1,True
+16,6677,Greater Western Sydney,Gold Coast,logistic,0.5186178981913178,1,1,True
+16,6678,Western Bulldogs,Richmond,logistic,0.747451943658959,1,1,True
+16,6672,Fremantle,Essendon,random_forest,0.8459799170983707,1,1,True
+16,6673,Geelong,Brisbane Lions,random_forest,0.785440928049642,1,0,False
+16,6674,Carlton,North Melbourne,random_forest,0.6667866379826275,1,0,False
+16,6675,Port Adelaide,Sydney,random_forest,0.5269667275324145,1,0,False
+16,6676,Collingwood,St Kilda,random_forest,0.8521403977284969,1,1,True
+16,6677,Greater Western Sydney,Gold Coast,random_forest,0.5087572588699076,1,1,True
+16,6678,Western Bulldogs,Richmond,random_forest,0.787944297738382,1,1,True
+16,6672,Fremantle,Essendon,gradient_boosting,0.8302782505183968,1,1,True
+16,6673,Geelong,Brisbane Lions,gradient_boosting,0.8773776468838229,1,0,False
+16,6674,Carlton,North Melbourne,gradient_boosting,0.7180723834550545,1,0,False
+16,6675,Port Adelaide,Sydney,gradient_boosting,0.62735933980531,1,0,False
+16,6676,Collingwood,St Kilda,gradient_boosting,0.8374901283356169,1,1,True
+16,6677,Greater Western Sydney,Gold Coast,gradient_boosting,0.4580208159178283,0,1,False
+16,6678,Western Bulldogs,Richmond,gradient_boosting,0.7301044701028989,1,1,True
+16,6672,Fremantle,Essendon,xgboost,0.7875744104385376,1,1,True
+16,6673,Geelong,Brisbane Lions,xgboost,0.7989667057991028,1,0,False
+16,6674,Carlton,North Melbourne,xgboost,0.8248669505119324,1,0,False
+16,6675,Port Adelaide,Sydney,xgboost,0.4695965647697449,0,0,True
+16,6676,Collingwood,St Kilda,xgboost,0.8308770656585693,1,1,True
+16,6677,Greater Western Sydney,Gold Coast,xgboost,0.4253329932689667,0,1,False
+16,6678,Western Bulldogs,Richmond,xgboost,0.7374703288078308,1,1,True
+17,6679,Port Adelaide,Carlton,logistic,0.4948481810492296,0,1,False
+17,6680,Sydney,Western Bulldogs,logistic,0.33931098489117906,0,0,True
+17,6681,Gold Coast,Melbourne,logistic,0.6044186930633267,1,1,True
+17,6682,Hawthorn,North Melbourne,logistic,0.540638861920887,1,1,True
+17,6683,Collingwood,West Coast,logistic,0.7938251809788486,1,1,True
+17,6684,Richmond,Adelaide,logistic,0.2604115214055734,0,0,True
+17,6685,Fremantle,St Kilda,logistic,0.8094201771003531,1,1,True
+17,6679,Port Adelaide,Carlton,random_forest,0.5532133908820202,1,1,True
+17,6680,Sydney,Western Bulldogs,random_forest,0.3459225198797447,0,0,True
+17,6681,Gold Coast,Melbourne,random_forest,0.4935715583896968,0,1,False
+17,6682,Hawthorn,North Melbourne,random_forest,0.5763616359263092,1,1,True
+17,6683,Collingwood,West Coast,random_forest,0.8935245381686847,1,1,True
+17,6684,Richmond,Adelaide,random_forest,0.35997804726583355,0,0,True
+17,6685,Fremantle,St Kilda,random_forest,0.8969587131594757,1,1,True
+17,6679,Port Adelaide,Carlton,gradient_boosting,0.6269135058840397,1,1,True
+17,6680,Sydney,Western Bulldogs,gradient_boosting,0.3985322738146417,0,0,True
+17,6681,Gold Coast,Melbourne,gradient_boosting,0.5641871022291763,1,1,True
+17,6682,Hawthorn,North Melbourne,gradient_boosting,0.6900757116477831,1,1,True
+17,6683,Collingwood,West Coast,gradient_boosting,0.8760701452515873,1,1,True
+17,6684,Richmond,Adelaide,gradient_boosting,0.48451896658386834,0,0,True
+17,6685,Fremantle,St Kilda,gradient_boosting,0.9003323518002152,1,1,True
+17,6679,Port Adelaide,Carlton,xgboost,0.6472526788711548,1,1,True
+17,6680,Sydney,Western Bulldogs,xgboost,0.4440573751926422,0,0,True
+17,6681,Gold Coast,Melbourne,xgboost,0.43808695673942566,0,1,False
+17,6682,Hawthorn,North Melbourne,xgboost,0.7545522451400757,1,1,True
+17,6683,Collingwood,West Coast,xgboost,0.8197188377380371,1,1,True
+17,6684,Richmond,Adelaide,xgboost,0.6826584339141846,1,0,False
+17,6685,Fremantle,St Kilda,xgboost,0.8822399973869324,1,1,True
+18,6686,North Melbourne,Western Bulldogs,logistic,0.34767750179698437,0,0,True
+18,6687,Carlton,Collingwood,logistic,0.37061088155758826,0,0,True
+18,6688,West Coast,Greater Western Sydney,logistic,0.3377143984149914,0,0,True
+18,6689,Essendon,Gold Coast,logistic,0.4117060287915341,0,0,True
+18,6690,Geelong,Richmond,logistic,0.852435348551135,1,1,True
+18,6691,Brisbane Lions,Port Adelaide,logistic,0.5999624790711732,1,1,True
+18,6692,St Kilda,Hawthorn,logistic,0.41578777139173095,0,0,True
+18,6693,Sydney,Fremantle,logistic,0.36819297812481755,0,1,False
+18,6694,Adelaide,Melbourne,logistic,0.8031293058637978,1,1,True
+18,6686,North Melbourne,Western Bulldogs,random_forest,0.3571721329289468,0,0,True
+18,6687,Carlton,Collingwood,random_forest,0.4879933798267806,0,0,True
+18,6688,West Coast,Greater Western Sydney,random_forest,0.3294074666434763,0,0,True
+18,6689,Essendon,Gold Coast,random_forest,0.4037954425459197,0,0,True
+18,6690,Geelong,Richmond,random_forest,0.9163974116876787,1,1,True
+18,6691,Brisbane Lions,Port Adelaide,random_forest,0.6175701265734023,1,1,True
+18,6692,St Kilda,Hawthorn,random_forest,0.4054178403360549,0,0,True
+18,6693,Sydney,Fremantle,random_forest,0.38333922537133214,0,1,False
+18,6694,Adelaide,Melbourne,random_forest,0.7967356988400904,1,1,True
+18,6686,North Melbourne,Western Bulldogs,gradient_boosting,0.2937564977890495,0,0,True
+18,6687,Carlton,Collingwood,gradient_boosting,0.5393233534107716,1,0,False
+18,6688,West Coast,Greater Western Sydney,gradient_boosting,0.3097743610462258,0,0,True
+18,6689,Essendon,Gold Coast,gradient_boosting,0.4552445887587483,0,0,True
+18,6690,Geelong,Richmond,gradient_boosting,0.9094945991809785,1,1,True
+18,6691,Brisbane Lions,Port Adelaide,gradient_boosting,0.654711520631529,1,1,True
+18,6692,St Kilda,Hawthorn,gradient_boosting,0.30859399870759335,0,0,True
+18,6693,Sydney,Fremantle,gradient_boosting,0.31415102324629696,0,1,False
+18,6694,Adelaide,Melbourne,gradient_boosting,0.45366096652342525,0,1,False
+18,6686,North Melbourne,Western Bulldogs,xgboost,0.20966270565986633,0,0,True
+18,6687,Carlton,Collingwood,xgboost,0.5764443278312683,1,0,False
+18,6688,West Coast,Greater Western Sydney,xgboost,0.23913589119911194,0,0,True
+18,6689,Essendon,Gold Coast,xgboost,0.31097427010536194,0,0,True
+18,6690,Geelong,Richmond,xgboost,0.8866245746612549,1,1,True
+18,6691,Brisbane Lions,Port Adelaide,xgboost,0.6015509963035583,1,1,True
+18,6692,St Kilda,Hawthorn,xgboost,0.3615119159221649,0,0,True
+18,6693,Sydney,Fremantle,xgboost,0.296085387468338,0,1,False
+18,6694,Adelaide,Melbourne,xgboost,0.8591383695602417,1,1,True
+19,6695,Carlton,Brisbane Lions,logistic,0.4282770883951251,0,0,True
+19,6696,Gold Coast,Collingwood,logistic,0.4767779467620724,0,1,False
+19,6697,Western Bulldogs,Adelaide,logistic,0.553777310459372,1,0,False
+19,6698,Greater Western Sydney,Geelong,logistic,0.4605754272581841,0,1,False
+19,6699,Richmond,Essendon,logistic,0.4766820950548602,0,1,False
+19,6700,Fremantle,Hawthorn,logistic,0.5632777419057752,1,1,True
+19,6701,Melbourne,North Melbourne,logistic,0.5752990399915495,1,1,True
+19,6702,St Kilda,Sydney,logistic,0.4873575976868938,0,0,True
+19,6703,Port Adelaide,West Coast,logistic,0.7890331865729692,1,1,True
+19,6695,Carlton,Brisbane Lions,random_forest,0.4217212561061532,0,0,True
+19,6696,Gold Coast,Collingwood,random_forest,0.5561198296198948,1,1,True
+19,6697,Western Bulldogs,Adelaide,random_forest,0.5975701191937651,1,0,False
+19,6698,Greater Western Sydney,Geelong,random_forest,0.4669194506939222,0,1,False
+19,6699,Richmond,Essendon,random_forest,0.4759709188042978,0,1,False
+19,6700,Fremantle,Hawthorn,random_forest,0.5935215183007155,1,1,True
+19,6701,Melbourne,North Melbourne,random_forest,0.5725456607310504,1,1,True
+19,6702,St Kilda,Sydney,random_forest,0.4059807722944224,0,0,True
+19,6703,Port Adelaide,West Coast,random_forest,0.7769641835927817,1,1,True
+19,6695,Carlton,Brisbane Lions,gradient_boosting,0.40313980560195267,0,0,True
+19,6696,Gold Coast,Collingwood,gradient_boosting,0.6981239625522427,1,1,True
+19,6697,Western Bulldogs,Adelaide,gradient_boosting,0.5443764474982721,1,0,False
+19,6698,Greater Western Sydney,Geelong,gradient_boosting,0.5518804515903268,1,1,True
+19,6699,Richmond,Essendon,gradient_boosting,0.3847041672504874,0,1,False
+19,6700,Fremantle,Hawthorn,gradient_boosting,0.494381541106076,0,1,False
+19,6701,Melbourne,North Melbourne,gradient_boosting,0.5789168744859569,1,1,True
+19,6702,St Kilda,Sydney,gradient_boosting,0.3838599642336015,0,0,True
+19,6703,Port Adelaide,West Coast,gradient_boosting,0.8938016814869963,1,1,True
+19,6695,Carlton,Brisbane Lions,xgboost,0.3244507908821106,0,0,True
+19,6696,Gold Coast,Collingwood,xgboost,0.818347156047821,1,1,True
+19,6697,Western Bulldogs,Adelaide,xgboost,0.5998561382293701,1,0,False
+19,6698,Greater Western Sydney,Geelong,xgboost,0.5781074166297913,1,1,True
+19,6699,Richmond,Essendon,xgboost,0.40957584977149963,0,1,False
+19,6700,Fremantle,Hawthorn,xgboost,0.4202425479888916,0,1,False
+19,6701,Melbourne,North Melbourne,xgboost,0.5613735914230347,1,1,True
+19,6702,St Kilda,Sydney,xgboost,0.26838919520378113,0,0,True
+19,6703,Port Adelaide,West Coast,xgboost,0.8896979689598083,1,1,True
+20,6704,Essendon,Greater Western Sydney,logistic,0.30839880132516945,0,0,True
+20,6705,Brisbane Lions,Western Bulldogs,logistic,0.47961916492779333,0,1,False
+20,6706,Hawthorn,Port Adelaide,logistic,0.6508338573162492,1,1,True
+20,6707,Sydney,North Melbourne,logistic,0.7657817920053515,1,1,True
+20,6708,Carlton,Melbourne,logistic,0.4843132521822957,0,1,False
+20,6709,West Coast,Richmond,logistic,0.6493757448844192,1,0,False
+20,6710,Geelong,St Kilda,logistic,0.7957484240980021,1,1,True
+20,6711,Collingwood,Fremantle,logistic,0.6034983754667379,1,0,False
+20,6712,Adelaide,Gold Coast,logistic,0.6232623803415577,1,1,True
+20,6704,Essendon,Greater Western Sydney,random_forest,0.25625671714885395,0,0,True
+20,6705,Brisbane Lions,Western Bulldogs,random_forest,0.5241394203875704,1,1,True
+20,6706,Hawthorn,Port Adelaide,random_forest,0.6079451245582054,1,1,True
+20,6707,Sydney,North Melbourne,random_forest,0.7279887456114831,1,1,True
+20,6708,Carlton,Melbourne,random_forest,0.4764091121785639,0,1,False
+20,6709,West Coast,Richmond,random_forest,0.7141716815468585,1,0,False
+20,6710,Geelong,St Kilda,random_forest,0.8635157445016982,1,1,True
+20,6711,Collingwood,Fremantle,random_forest,0.6273666957310913,1,0,False
+20,6712,Adelaide,Gold Coast,random_forest,0.6430835191480169,1,1,True
+20,6704,Essendon,Greater Western Sydney,gradient_boosting,0.2747803236969094,0,0,True
+20,6705,Brisbane Lions,Western Bulldogs,gradient_boosting,0.530211373251908,1,1,True
+20,6706,Hawthorn,Port Adelaide,gradient_boosting,0.5401484149777634,1,1,True
+20,6707,Sydney,North Melbourne,gradient_boosting,0.8200269684432419,1,1,True
+20,6708,Carlton,Melbourne,gradient_boosting,0.5506622056103928,1,1,True
+20,6709,West Coast,Richmond,gradient_boosting,0.70356463742483,1,0,False
+20,6710,Geelong,St Kilda,gradient_boosting,0.835997952492915,1,1,True
+20,6711,Collingwood,Fremantle,gradient_boosting,0.6201065432896866,1,0,False
+20,6712,Adelaide,Gold Coast,gradient_boosting,0.6191561962924312,1,1,True
+20,6704,Essendon,Greater Western Sydney,xgboost,0.32199209928512573,0,0,True
+20,6705,Brisbane Lions,Western Bulldogs,xgboost,0.4800686240196228,0,1,False
+20,6706,Hawthorn,Port Adelaide,xgboost,0.41832059621810913,0,1,False
+20,6707,Sydney,North Melbourne,xgboost,0.7908141613006592,1,1,True
+20,6708,Carlton,Melbourne,xgboost,0.6962809562683105,1,1,True
+20,6709,West Coast,Richmond,xgboost,0.7318077087402344,1,0,False
+20,6710,Geelong,St Kilda,xgboost,0.8836204409599304,1,1,True
+20,6711,Collingwood,Fremantle,xgboost,0.4756626784801483,0,0,True
+20,6712,Adelaide,Gold Coast,xgboost,0.6305665373802185,1,1,True
+21,6713,Hawthorn,Carlton,logistic,0.8267447097528422,1,1,True
+21,6714,Essendon,Western Bulldogs,logistic,0.2408301455090234,0,0,True
+21,6715,Greater Western Sydney,Sydney,logistic,0.6758219233791399,1,1,True
+21,6716,Gold Coast,Brisbane Lions,logistic,0.49746313238614787,0,1,False
+21,6717,Fremantle,West Coast,logistic,0.7976388285600913,1,1,True
+21,6718,North Melbourne,Geelong,logistic,0.2681646128605773,0,0,True
+21,6719,Adelaide,Port Adelaide,logistic,0.7210256183348273,1,1,True
+21,6720,Richmond,Collingwood,logistic,0.3157063216190637,0,0,True
+21,6721,St Kilda,Melbourne,logistic,0.5092780282455059,1,1,True
+21,6713,Hawthorn,Carlton,random_forest,0.9171918897451,1,1,True
+21,6714,Essendon,Western Bulldogs,random_forest,0.19850198059021298,0,0,True
+21,6715,Greater Western Sydney,Sydney,random_forest,0.6660122395560211,1,1,True
+21,6716,Gold Coast,Brisbane Lions,random_forest,0.4456971272490977,0,1,False
+21,6717,Fremantle,West Coast,random_forest,0.8393994652483826,1,1,True
+21,6718,North Melbourne,Geelong,random_forest,0.24582214067245173,0,0,True
+21,6719,Adelaide,Port Adelaide,random_forest,0.7229351888566016,1,1,True
+21,6720,Richmond,Collingwood,random_forest,0.2969588112949322,0,0,True
+21,6721,St Kilda,Melbourne,random_forest,0.46294396818978917,0,1,False
+21,6713,Hawthorn,Carlton,gradient_boosting,0.9497966466245794,1,1,True
+21,6714,Essendon,Western Bulldogs,gradient_boosting,0.05709726060994116,0,0,True
+21,6715,Greater Western Sydney,Sydney,gradient_boosting,0.8130142421938613,1,1,True
+21,6716,Gold Coast,Brisbane Lions,gradient_boosting,0.3889334071805732,0,1,False
+21,6717,Fremantle,West Coast,gradient_boosting,0.9145332744373942,1,1,True
+21,6718,North Melbourne,Geelong,gradient_boosting,0.31482356578228976,0,0,True
+21,6719,Adelaide,Port Adelaide,gradient_boosting,0.7317055060708344,1,1,True
+21,6720,Richmond,Collingwood,gradient_boosting,0.27626179947284096,0,0,True
+21,6721,St Kilda,Melbourne,gradient_boosting,0.4540339078002511,0,1,False
+21,6713,Hawthorn,Carlton,xgboost,0.9743263721466064,1,1,True
+21,6714,Essendon,Western Bulldogs,xgboost,0.16822588443756104,0,0,True
+21,6715,Greater Western Sydney,Sydney,xgboost,0.8264145255088806,1,1,True
+21,6716,Gold Coast,Brisbane Lions,xgboost,0.4065907895565033,0,1,False
+21,6717,Fremantle,West Coast,xgboost,0.8928245306015015,1,1,True
+21,6718,North Melbourne,Geelong,xgboost,0.4099107086658478,0,0,True
+21,6719,Adelaide,Port Adelaide,xgboost,0.6953374147415161,1,1,True
+21,6720,Richmond,Collingwood,xgboost,0.3277103006839752,0,0,True
+21,6721,St Kilda,Melbourne,xgboost,0.561647891998291,1,1,True
+22,6722,Western Bulldogs,Greater Western Sydney,logistic,0.5124482369263037,1,1,True
+22,6723,Adelaide,Hawthorn,logistic,0.6515872847146278,1,1,True
+22,6724,Melbourne,West Coast,logistic,0.7422848201610278,1,1,True
+22,6725,Gold Coast,Richmond,logistic,0.7687580876946627,1,1,True
+22,6726,Sydney,Essendon,logistic,0.7952327424357144,1,1,True
+22,6727,Collingwood,Brisbane Lions,logistic,0.6309423618006412,1,0,False
+22,6728,St Kilda,North Melbourne,logistic,0.7746540179294348,1,1,True
+22,6729,Geelong,Port Adelaide,logistic,0.745398651698603,1,1,True
+22,6730,Fremantle,Carlton,logistic,0.796894274249884,1,1,True
+22,6722,Western Bulldogs,Greater Western Sydney,random_forest,0.512654063030963,1,1,True
+22,6723,Adelaide,Hawthorn,random_forest,0.6705540515155789,1,1,True
+22,6724,Melbourne,West Coast,random_forest,0.7507407852791808,1,1,True
+22,6725,Gold Coast,Richmond,random_forest,0.7391323758349102,1,1,True
+22,6726,Sydney,Essendon,random_forest,0.7944972299954132,1,1,True
+22,6727,Collingwood,Brisbane Lions,random_forest,0.6288795302314054,1,0,False
+22,6728,St Kilda,North Melbourne,random_forest,0.8602534993073344,1,1,True
+22,6729,Geelong,Port Adelaide,random_forest,0.7675116630442669,1,1,True
+22,6730,Fremantle,Carlton,random_forest,0.8012467065643891,1,1,True
+22,6722,Western Bulldogs,Greater Western Sydney,gradient_boosting,0.4642151537333027,0,1,False
+22,6723,Adelaide,Hawthorn,gradient_boosting,0.6572808844318523,1,1,True
+22,6724,Melbourne,West Coast,gradient_boosting,0.772541901470182,1,1,True
+22,6725,Gold Coast,Richmond,gradient_boosting,0.6888089713994683,1,1,True
+22,6726,Sydney,Essendon,gradient_boosting,0.5809013698608642,1,1,True
+22,6727,Collingwood,Brisbane Lions,gradient_boosting,0.5645601902573895,1,0,False
+22,6728,St Kilda,North Melbourne,gradient_boosting,0.9199858123250395,1,1,True
+22,6729,Geelong,Port Adelaide,gradient_boosting,0.7124200514946646,1,1,True
+22,6730,Fremantle,Carlton,gradient_boosting,0.7191489040873669,1,1,True
+22,6722,Western Bulldogs,Greater Western Sydney,xgboost,0.325298011302948,0,1,False
+22,6723,Adelaide,Hawthorn,xgboost,0.8200857639312744,1,1,True
+22,6724,Melbourne,West Coast,xgboost,0.6953415870666504,1,1,True
+22,6725,Gold Coast,Richmond,xgboost,0.705629825592041,1,1,True
+22,6726,Sydney,Essendon,xgboost,0.3105964660644531,0,1,False
+22,6727,Collingwood,Brisbane Lions,xgboost,0.5575849413871765,1,0,False
+22,6728,St Kilda,North Melbourne,xgboost,0.941961944103241,1,1,True
+22,6729,Geelong,Port Adelaide,xgboost,0.7567824721336365,1,1,True
+22,6730,Fremantle,Carlton,xgboost,0.5987581014633179,1,1,True
+23,6731,Hawthorn,Collingwood,logistic,0.6044335583008879,1,1,True
+23,6732,Geelong,Essendon,logistic,0.9120916645761886,1,1,True
+23,6733,Richmond,St Kilda,logistic,0.4878448579619705,0,0,True
+23,6734,Brisbane Lions,Sydney,logistic,0.5902384756620225,1,0,False
+23,6735,Carlton,Gold Coast,logistic,0.28196848361243293,0,0,True
+23,6736,Port Adelaide,Fremantle,logistic,0.2977629145019497,0,0,True
+23,6737,Greater Western Sydney,North Melbourne,logistic,0.8440445573084673,1,1,True
+23,6738,Melbourne,Western Bulldogs,logistic,0.47295831634975183,0,0,True
+23,6739,West Coast,Adelaide,logistic,0.1730279064929174,0,0,True
+23,6731,Hawthorn,Collingwood,random_forest,0.6066834745143121,1,1,True
+23,6732,Geelong,Essendon,random_forest,0.9165561497412456,1,1,True
+23,6733,Richmond,St Kilda,random_forest,0.4923182144293594,0,0,True
+23,6734,Brisbane Lions,Sydney,random_forest,0.6089235592763885,1,0,False
+23,6735,Carlton,Gold Coast,random_forest,0.3309434277078924,0,0,True
+23,6736,Port Adelaide,Fremantle,random_forest,0.1975234407182111,0,0,True
+23,6737,Greater Western Sydney,North Melbourne,random_forest,0.8853219239226869,1,1,True
+23,6738,Melbourne,Western Bulldogs,random_forest,0.4449475562617937,0,0,True
+23,6739,West Coast,Adelaide,random_forest,0.12737864936283216,0,0,True
+23,6731,Hawthorn,Collingwood,gradient_boosting,0.5234275720347589,1,1,True
+23,6732,Geelong,Essendon,gradient_boosting,0.9437596141168632,1,1,True
+23,6733,Richmond,St Kilda,gradient_boosting,0.4999630809795137,0,0,True
+23,6734,Brisbane Lions,Sydney,gradient_boosting,0.620788828262026,1,0,False
+23,6735,Carlton,Gold Coast,gradient_boosting,0.37540208000980463,0,0,True
+23,6736,Port Adelaide,Fremantle,gradient_boosting,0.08269829114251781,0,0,True
+23,6737,Greater Western Sydney,North Melbourne,gradient_boosting,0.8681048803179908,1,1,True
+23,6738,Melbourne,Western Bulldogs,gradient_boosting,0.42095485709580677,0,0,True
+23,6739,West Coast,Adelaide,gradient_boosting,0.08021000294679972,0,0,True
+23,6731,Hawthorn,Collingwood,xgboost,0.49489688873291016,0,1,False
+23,6732,Geelong,Essendon,xgboost,0.9357256293296814,1,1,True
+23,6733,Richmond,St Kilda,xgboost,0.483500599861145,0,0,True
+23,6734,Brisbane Lions,Sydney,xgboost,0.6675597429275513,1,0,False
+23,6735,Carlton,Gold Coast,xgboost,0.5750935077667236,1,0,False
+23,6736,Port Adelaide,Fremantle,xgboost,0.18553736805915833,0,0,True
+23,6737,Greater Western Sydney,North Melbourne,xgboost,0.8267254829406738,1,1,True
+23,6738,Melbourne,Western Bulldogs,xgboost,0.34324952960014343,0,0,True
+23,6739,West Coast,Adelaide,xgboost,0.18305598199367523,0,0,True

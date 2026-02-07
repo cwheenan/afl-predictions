@@ -1,0 +1,18 @@
+[
+  "diff_goals",
+  "diff_behinds",
+  "diff_kicks",
+  "diff_handballs",
+  "diff_disposals",
+  "diff_marks",
+  "diff_tackles",
+  "diff_hitouts",
+  "diff_frees_for",
+  "diff_frees_against",
+  "diff_avg_percent_played",
+  "home_players",
+  "away_players",
+  "home_recent_margin",
+  "away_recent_margin",
+  "diff_recent_margin"
+]

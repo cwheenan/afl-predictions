@@ -1,0 +1,41 @@
+=== HYPERPARAMETER TUNING RESULTS ===
+
+LOGISTIC:
+  Test Accuracy: 0.6825
+  Best Parameters:
+    C: 0.001
+    max_iter: 2000
+    penalty: l2
+    solver: liblinear
+
+RANDOM_FOREST:
+  Test Accuracy: 0.6878
+  Best Parameters:
+    n_estimators: 200
+    min_samples_split: 5
+    min_samples_leaf: 1
+    max_features: log2
+    max_depth: 5
+    bootstrap: False
+
+GRADIENT_BOOSTING:
+  Test Accuracy: 0.6667
+  Best Parameters:
+    subsample: 1.0
+    n_estimators: 300
+    min_samples_split: 2
+    min_samples_leaf: 2
+    max_depth: 3
+    learning_rate: 0.01
+
+XGBOOST:
+  Test Accuracy: 0.6561
+  Best Parameters:
+    subsample: 1.0
+    n_estimators: 300
+    min_child_weight: 5
+    max_depth: 3
+    learning_rate: 0.01
+    gamma: 0.2
+    colsample_bytree: 0.6
+
