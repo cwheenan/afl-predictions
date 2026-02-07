@@ -30,6 +30,9 @@ env/
 .ipynb_checkpoints
 *.ipynb
 
+# Cleanup/planning docs
+cleanup_plan.md
+
 # IDEs
 .vscode/
 .idea/
