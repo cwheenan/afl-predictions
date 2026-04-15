@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-04-09T18:53:28.7460919+10:00",
+  "model_path": "models/rf_with_odds_final.joblib",
+  "year": 2026,
+  "round": 5,
+  "odds_weight": 0.1,
+  "predictions": [
+    {
+      "match_id": 6776,
+      "home_team": "Adelaide",
+      "away_team": "Carlton",
+      "venue": "Adelaide Oval",
+      "date": "Thu, 09-Apr-2026 07:40 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6549,
+      "away_win_prob": 0.3451,
+      "confidence": 0.3098,
+      "rf_prob": 0.6348,
+      "odds_prob": 0.8358
+    },
+    {
+      "match_id": 6777,
+      "home_team": "Collingwood",
+      "away_team": "Fremantle",
+      "venue": "Adelaide Oval",
+      "date": "Fri, 10-Apr-2026 07:40 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5247,
+      "away_win_prob": 0.4753,
+      "confidence": 0.0493,
+      "rf_prob": 0.5439,
+      "odds_prob": 0.3517
+    },
+    {
+      "match_id": 6778,
+      "home_team": "North Melbourne",
+      "away_team": "Brisbane Lions",
+      "venue": "Barossa Park",
+      "date": "Sat, 11-Apr-2026 12:35 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.4357,
+      "away_win_prob": 0.5643,
+      "confidence": 0.1286,
+      "rf_prob": 0.4649,
+      "odds_prob": 0.1729
+    },
+    {
+      "match_id": 6779,
+      "home_team": "Essendon",
+      "away_team": "Melbourne",
+      "venue": "Adelaide Oval",
+      "date": "Sat, 11-Apr-2026 01:15 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.4153,
+      "away_win_prob": 0.5847,
+      "confidence": 0.1695,
+      "rf_prob": 0.435,
+      "odds_prob": 0.2381
+    },
+    {
+      "match_id": 6780,
+      "home_team": "Sydney",
+      "away_team": "Gold Coast",
+      "venue": "Norwood Oval",
+      "date": "Sat, 11-Apr-2026 04:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6313,
+      "away_win_prob": 0.3687,
+      "confidence": 0.2626,
+      "rf_prob": 0.6418,
+      "odds_prob": 0.5363
+    },
+    {
+      "match_id": 6781,
+      "home_team": "Hawthorn",
+      "away_team": "Western Bulldogs",
+      "venue": "Adelaide Oval",
+      "date": "Sat, 11-Apr-2026 07:35 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5368,
+      "away_win_prob": 0.4632,
+      "confidence": 0.0736,
+      "rf_prob": 0.5343,
+      "odds_prob": 0.5596
+    },
+    {
+      "match_id": 6782,
+      "home_team": "Geelong",
+      "away_team": "West Coast",
+      "venue": "Norwood Oval",
+      "date": "Sun, 12-Apr-2026 12:30 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6907,
+      "away_win_prob": 0.3093,
+      "confidence": 0.3815,
+      "rf_prob": 0.6715,
+      "odds_prob": 0.8642
+    },
+    {
+      "match_id": 6783,
+      "home_team": "Greater Western Sydney",
+      "away_team": "Richmond",
+      "venue": "Barossa Park",
+      "date": "Sun, 12-Apr-2026 03:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.654,
+      "away_win_prob": 0.346,
+      "confidence": 0.3079,
+      "rf_prob": 0.6339,
+      "odds_prob": 0.8345
+    },
+    {
+      "match_id": 6784,
+      "home_team": "Port Adelaide",
+      "away_team": "St Kilda",
+      "venue": "Adelaide Oval",
+      "date": "Sun, 12-Apr-2026 07:15 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.4656,
+      "away_win_prob": 0.5344,
+      "confidence": 0.0688,
+      "rf_prob": 0.4721,
+      "odds_prob": 0.4076
+    }
+  ],
+  "summary": {
+    "total": 9,
+    "home_wins": 6,
+    "away_wins": 3,
+    "avg_confidence": 0.1946222222222222
+  },
+  "note": "Manual odds supplied by user for South Australia round; no special neutral-venue adjustment applied."
+}

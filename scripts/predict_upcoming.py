@@ -24,6 +24,8 @@ from afl_predictions.features.lineup import features_for_match
 
 def parse_date_string(date_str: str):
     """Parse date string to extract year."""
+    if date_str is None:
+        return None
     import re
     match = re.search(r'(\d{4})', date_str)
     if match:

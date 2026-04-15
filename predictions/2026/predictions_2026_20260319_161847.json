@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-03-19T16:18:47.710639",
+  "model_path": "models/rf_with_odds_final.joblib",
+  "year": 2026,
+  "round": null,
+  "odds_weight": 0.1,
+  "predictions": [
+    {
+      "match_id": 6754,
+      "home_team": "Hawthorn",
+      "away_team": "Sydney",
+      "venue": "M.C.G.",
+      "date": "Thu, 19-Mar-2026 07:30 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6726140541772323,
+      "away_win_prob": 0.3273859458227677,
+      "confidence": 0.3452281083544646,
+      "rf_prob": 0.6374149095095594,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6755,
+      "home_team": "Adelaide",
+      "away_team": "Western Bulldogs",
+      "venue": "Adelaide Oval",
+      "date": "Fri, 20-Mar-2026 07:40 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.48243800606318715,
+      "away_win_prob": 0.5175619939368128,
+      "confidence": 0.035123987873625695,
+      "rf_prob": 0.4900213797345863,
+      "odds_prob": 0.41418764302059496
+    },
+    {
+      "match_id": 6756,
+      "home_team": "Richmond",
+      "away_team": "Gold Coast",
+      "venue": "M.C.G.",
+      "date": "Sat, 21-Mar-2026 01:15 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.2474495431439611,
+      "away_win_prob": 0.7525504568560389,
+      "confidence": 0.5051009137120779,
+      "rf_prob": 0.2737668652917666,
+      "odds_prob": 0.010593643813711775
+    },
+    {
+      "match_id": 6757,
+      "home_team": "Greater Western Sydney",
+      "away_team": "St Kilda",
+      "venue": "Sydney Showground",
+      "date": "Sat, 21-Mar-2026 04:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6814757890462831,
+      "away_win_prob": 0.31852421095371686,
+      "confidence": 0.3629515780925663,
+      "rf_prob": 0.6499228476840331,
+      "odds_prob": 0.9654522613065326
+    },
+    {
+      "match_id": 6758,
+      "home_team": "Fremantle",
+      "away_team": "Melbourne",
+      "venue": "Perth Stadium",
+      "date": "Sat, 21-Mar-2026 07:35 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.7710983844076672,
+      "away_win_prob": 0.2289016155923328,
+      "confidence": 0.5421967688153344,
+      "rf_prob": 0.7468419430989315,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6759,
+      "home_team": "Port Adelaide",
+      "away_team": "Essendon",
+      "venue": "Adelaide Oval",
+      "date": "Sun, 22-Mar-2026 03:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6220571299007225,
+      "away_win_prob": 0.3779428700992775,
+      "confidence": 0.24411425980144497,
+      "rf_prob": 0.5839021153000769,
+      "odds_prob": 0.9654522613065326
+    },
+    {
+      "match_id": 6760,
+      "home_team": "West Coast",
+      "away_team": "North Melbourne",
+      "venue": "Perth Stadium",
+      "date": "Sun, 22-Mar-2026 06:10 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.4319377958334939,
+      "away_win_prob": 0.5680622041665061,
+      "confidence": 0.1361244083330122,
+      "rf_prob": 0.46846009588576215,
+      "odds_prob": 0.10323709536307961
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "home_wins": 4,
+    "away_wins": 3,
+    "avg_confidence": 0.3101200035689323
+  }
+}

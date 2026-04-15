@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-03-11T14:12:53.231143",
+  "model_path": "models/rf_with_odds_final.joblib",
+  "year": 2026,
+  "round": null,
+  "odds_weight": 0.1,
+  "predictions": [
+    {
+      "match_id": 6745,
+      "home_team": "Carlton",
+      "away_team": "Richmond",
+      "venue": "M.C.G.",
+      "date": "Thu, 12-Mar-2026 07:30 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5505864620279985,
+      "away_win_prob": 0.44941353797200145,
+      "confidence": 0.1011729240559971,
+      "rf_prob": 0.5339360101828471,
+      "odds_prob": 0.7004405286343612
+    },
+    {
+      "match_id": 6746,
+      "home_team": "Essendon",
+      "away_team": "Hawthorn",
+      "venue": "M.C.G.",
+      "date": "Fri, 13-Mar-2026 07:40 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.4227593384356926,
+      "away_win_prob": 0.5772406615643074,
+      "confidence": 0.15448132312861484,
+      "rf_prob": 0.4453958737456229,
+      "odds_prob": 0.2190305206463196
+    },
+    {
+      "match_id": 6747,
+      "home_team": "Western Bulldogs",
+      "away_team": "Greater Western Sydney",
+      "venue": "Docklands",
+      "date": "Sat, 14-Mar-2026 01:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.577036386015642,
+      "away_win_prob": 0.422963613984358,
+      "confidence": 0.154072772031284,
+      "rf_prob": 0.5633982900786996,
+      "odds_prob": 0.6997792494481236
+    },
+    {
+      "match_id": 6748,
+      "home_team": "Geelong",
+      "away_team": "Fremantle",
+      "venue": "Kardinia Park",
+      "date": "Sat, 14-Mar-2026 04:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5673985549441585,
+      "away_win_prob": 0.4326014450558415,
+      "confidence": 0.13479710988831695,
+      "rf_prob": 0.5586891574346072,
+      "odds_prob": 0.6457831325301205
+    },
+    {
+      "match_id": 6749,
+      "home_team": "Sydney",
+      "away_team": "Brisbane Lions",
+      "venue": "S.C.G.",
+      "date": "Sat, 14-Mar-2026 07:10 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6269960954910307,
+      "away_win_prob": 0.37300390450896925,
+      "confidence": 0.2539921909820615,
+      "rf_prob": 0.6249086469311319,
+      "odds_prob": 0.6457831325301205
+    },
+    {
+      "match_id": 6750,
+      "home_team": "Collingwood",
+      "away_team": "Adelaide",
+      "venue": "M.C.G.",
+      "date": "Sat, 14-Mar-2026 07:35 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5295502855324544,
+      "away_win_prob": 0.4704497144675456,
+      "confidence": 0.05910057106490885,
+      "rf_prob": 0.5262130403440627,
+      "odds_prob": 0.5595854922279793
+    },
+    {
+      "match_id": 6751,
+      "home_team": "North Melbourne",
+      "away_team": "Port Adelaide",
+      "venue": "Docklands",
+      "date": "Sun, 15-Mar-2026 01:10 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.4363030677678748,
+      "away_win_prob": 0.5636969322321252,
+      "confidence": 0.12739386446425038,
+      "rf_prob": 0.4413392482299695,
+      "odds_prob": 0.3909774436090226
+    },
+    {
+      "match_id": 6752,
+      "home_team": "Melbourne",
+      "away_team": "St Kilda",
+      "venue": "M.C.G.",
+      "date": "Sun, 15-Mar-2026 03:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5912249957284231,
+      "away_win_prob": 0.40877500427157687,
+      "confidence": 0.18244999145684626,
+      "rf_prob": 0.6142455618927616,
+      "odds_prob": 0.3840399002493765
+    },
+    {
+      "match_id": 6753,
+      "home_team": "Gold Coast",
+      "away_team": "West Coast",
+      "venue": "Carrara",
+      "date": "Sun, 15-Mar-2026 06:10 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.7888083053547028,
+      "away_win_prob": 0.2111916946452972,
+      "confidence": 0.5776166107094056,
+      "rf_prob": 0.7709508684628575,
+      "odds_prob": 0.9495252373813095
+    }
+  ],
+  "summary": {
+    "total": 9,
+    "home_wins": 7,
+    "away_wins": 2,
+    "avg_confidence": 0.19389748419796504
+  }
+}

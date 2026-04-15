@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-02-08T14:29:52.017127",
+  "model_path": "models/rf_with_odds_final.joblib",
+  "year": 2026,
+  "round": null,
+  "odds_weight": 0.1,
+  "predictions": [
+    {
+      "match_id": 6740,
+      "home_team": "Sydney",
+      "away_team": "Carlton",
+      "venue": "S.C.G.",
+      "date": "Thu, 05-Mar-2026 07:30 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.7723842609261664,
+      "away_win_prob": 0.2276157390738336,
+      "confidence": 0.5447685218523328,
+      "rf_prob": 0.7482706947861528,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6741,
+      "home_team": "Gold Coast",
+      "away_team": "Geelong",
+      "venue": "Carrara",
+      "date": "Fri, 06-Mar-2026 08:05 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.41906694645782305,
+      "away_win_prob": 0.580933053542177,
+      "confidence": 0.1618661070843539,
+      "rf_prob": 0.42859290347165524,
+      "odds_prob": 0.3333333333333333
+    },
+    {
+      "match_id": 6742,
+      "home_team": "Greater Western Sydney",
+      "away_team": "Hawthorn",
+      "venue": "Sydney Showground",
+      "date": "Sat, 07-Mar-2026 04:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.6532503304103408,
+      "away_win_prob": 0.34674966958965925,
+      "confidence": 0.3065006608206815,
+      "rf_prob": 0.6640765945127817,
+      "odds_prob": 0.5558139534883721
+    },
+    {
+      "match_id": 6743,
+      "home_team": "Brisbane Lions",
+      "away_team": "Western Bulldogs",
+      "venue": "Gabba",
+      "date": "Sat, 07-Mar-2026 07:35 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5777677072137519,
+      "away_win_prob": 0.4222322927862481,
+      "confidence": 0.15553541442750385,
+      "rf_prob": 0.5320300795501367,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6744,
+      "home_team": "St Kilda",
+      "away_team": "Collingwood",
+      "venue": "M.C.G.",
+      "date": "Sun, 08-Mar-2026 07:20 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.3250483364223661,
+      "away_win_prob": 0.6749516635776339,
+      "confidence": 0.34990332715526784,
+      "rf_prob": 0.35998774671221656,
+      "odds_prob": 0.010593643813711775
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "home_wins": 3,
+    "away_wins": 2,
+    "avg_confidence": 0.303714806268028
+  }
+}
