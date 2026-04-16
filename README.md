@@ -53,12 +53,19 @@ The code now loads `.env` automatically via `src/afl_predictions/config.py`.
 **Current: 79.1% accuracy** (117/148 correct on 2025 season)
 
 The model is an ensemble that combines:
-- Random Forest trained on 32 features (stats + odds): 76.4% accuracy
-- Squiggle tipster consensus odds: ~80% accuracy
+- Random Forest trained on 44 features (stats + odds + ladder/context): 77.0% accuracy on 2025 holdout
+- Squiggle tipster consensus odds proxy: ~80% accuracy
 
-Final prediction: RF probability (90%) + Odds probability (10%)
+Final prediction: RF probability (60%) + Odds probability (40%)
 
-This beats the stats-only baseline (68.8%) by over 10 percentage points.
+This beats the stats-only baseline (~69%) by around 10 percentage points.
+
+## Current Workflow Notes
+
+- Match identity is based on `home_team + away_team + date proximity`, not round label alone.
+- For current season odds sync, we only pull through the detected current round (not future rounds).
+- Prediction outputs are organized by round under `predictions/<year>/round_<NN>/`.
+- Historical and misc prediction JSON files are stored under `predictions/<year>/misc/`.
 
 ## Making Predictions
 
@@ -70,7 +77,14 @@ python scripts/create_odds_proxy_from_squiggle.py --year 2026
 
 # Generate predictions
 python scripts/predict_upcoming.py --year 2026
+
+# Or force a specific round
+python scripts/predict_upcoming.py --year 2026 --round 6
 ```
+
+Predictions are written to paths like:
+
+- `predictions/2026/round_06/predictions_2026_YYYYMMDD_HHMMSS.json`
 
 If you use The Odds API collector, set `THE_ODDS_API_KEY` in `.env` or pass `--api-key`:
 
@@ -91,6 +105,11 @@ python scripts/train_ensemble_with_odds.py
 # Evaluate different approaches
 python scripts/evaluate_odds_impact.py
 ```
+
+Useful maintenance scripts:
+
+- `python scripts/cleanup_duplicate_matches.py --season 2026 --apply`
+- `python scripts/organize_prediction_files.py --year 2026 --apply`
 
 Models are saved to `models/` as `.joblib` files (not in git due to size).
 
