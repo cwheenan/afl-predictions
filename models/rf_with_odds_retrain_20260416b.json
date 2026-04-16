@@ -1,0 +1,15 @@
+{
+  "trained_at": "2026-04-16T12:38:21.269102",
+  "train_years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "train_size": 665,
+  "feature_count": 44,
+  "model": "rf_with_odds_final.joblib",
+  "default_odds_weight": 0.4
+}

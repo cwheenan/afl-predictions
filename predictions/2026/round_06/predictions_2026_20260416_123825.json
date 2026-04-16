@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-04-16T12:38:25.509337",
+  "model_path": "models/rf_with_odds_final.joblib",
+  "year": 2026,
+  "round": 6,
+  "odds_weight": 0.4,
+  "predictions": [
+    {
+      "match_id": 6786,
+      "home_team": "Geelong",
+      "away_team": "Western Bulldogs",
+      "venue": "Kardinia Park",
+      "date": "Fri, 17-Apr-2026 07:20 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.5826425240105062,
+      "away_win_prob": 0.4173574759894938,
+      "confidence": 0.1652850480210124,
+      "rf_prob": 0.5577375400175104,
+      "odds_prob": 0.62
+    },
+    {
+      "match_id": 6787,
+      "home_team": "Sydney",
+      "away_team": "Greater Western Sydney",
+      "venue": "S.C.G.",
+      "date": "Fri, 17-Apr-2026 07:50 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.7961859876863899,
+      "away_win_prob": 0.20381401231361007,
+      "confidence": 0.5923719753727799,
+      "rf_prob": 0.6673724086864578,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6788,
+      "home_team": "Gold Coast",
+      "away_team": "Essendon",
+      "venue": "Carrara",
+      "date": "Sat, 18-Apr-2026 01:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.929159796695773,
+      "away_win_prob": 0.07084020330422702,
+      "confidence": 0.858319593391546,
+      "rf_prob": 0.888995423702096,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6789,
+      "home_team": "Hawthorn",
+      "away_team": "Port Adelaide",
+      "venue": "Docklands",
+      "date": "Sat, 18-Apr-2026 04:15 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.9061890757669828,
+      "away_win_prob": 0.09381092423301718,
+      "confidence": 0.8123781515339656,
+      "rf_prob": 0.8507108888207793,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6790,
+      "home_team": "Adelaide",
+      "away_team": "St Kilda",
+      "venue": "Adelaide Oval",
+      "date": "Sat, 18-Apr-2026 07:35 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.8663916999836325,
+      "away_win_prob": 0.13360830001636748,
+      "confidence": 0.732783399967265,
+      "rf_prob": 0.784381929181862,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6791,
+      "home_team": "North Melbourne",
+      "away_team": "Richmond",
+      "venue": "Docklands",
+      "date": "Sun, 19-Apr-2026 01:10 PM",
+      "prediction": "HOME",
+      "home_win_prob": 0.8669775588615458,
+      "away_win_prob": 0.13302244113845418,
+      "confidence": 0.7339551177230916,
+      "rf_prob": 0.7853583606450509,
+      "odds_prob": 0.9894063561862882
+    },
+    {
+      "match_id": 6792,
+      "home_team": "Melbourne",
+      "away_team": "Brisbane Lions",
+      "venue": "M.C.G.",
+      "date": "Sun, 19-Apr-2026 03:15 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.31020126916774327,
+      "away_win_prob": 0.6897987308322567,
+      "confidence": 0.37959746166451347,
+      "rf_prob": 0.5099396860704309,
+      "odds_prob": 0.010593643813711775
+    },
+    {
+      "match_id": 6793,
+      "home_team": "West Coast",
+      "away_team": "Fremantle",
+      "venue": "Perth Stadium",
+      "date": "Sun, 19-Apr-2026 05:10 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.09757587656924038,
+      "away_win_prob": 0.9024241234307596,
+      "confidence": 0.8048482468615192,
+      "rf_prob": 0.1555640317395928,
+      "odds_prob": 0.010593643813711775
+    },
+    {
+      "match_id": 6785,
+      "home_team": "Carlton",
+      "away_team": "Collingwood",
+      "venue": "M.C.G.",
+      "date": "Thu, 16-Apr-2026 07:30 PM",
+      "prediction": "AWAY",
+      "home_win_prob": 0.17164358428331228,
+      "away_win_prob": 0.8283564157166877,
+      "confidence": 0.6567128314333754,
+      "rf_prob": 0.241471701505051,
+      "odds_prob": 0.06690140845070422
+    }
+  ],
+  "summary": {
+    "total": 9,
+    "home_wins": 6,
+    "away_wins": 3,
+    "avg_confidence": 0.6373613139965632
+  }
+}

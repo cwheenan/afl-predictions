@@ -26,6 +26,7 @@ from typing import Dict, List, Optional
 import requests
 from bs4 import BeautifulSoup
 
+from afl_predictions.config import DEFAULT_USER_AGENT, THE_ODDS_API_KEY
 from afl_predictions.db import get_engine, get_session, Match
 
 
@@ -55,7 +56,7 @@ class OddsCollector:
     def __init__(self, session):
         self.session = session
         self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            'User-Agent': DEFAULT_USER_AGENT,
         }
     
     def fetch_match_odds(self, home_team: str, away_team: str, match_date: str) -> Optional[Dict]:
@@ -294,8 +295,10 @@ def main():
     engine = get_engine()
     session = get_session(engine)
     
+    api_key = args.api_key or THE_ODDS_API_KEY
+
     if args.fetch_current:
-        fetch_current_odds(session, args.api_key)
+        fetch_current_odds(session, api_key)
     else:
         print("No action specified. Use --fetch-current to fetch odds.")
         print("Example: python scripts/collect_odds.py --fetch-current --api-key YOUR_KEY")

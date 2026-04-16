@@ -39,6 +39,15 @@ pip install -r requirements.txt
 pytest
 ```
 
+Environment variables:
+
+```powershell
+Copy-Item .env.example .env
+# Edit .env with your values (especially User-Agent contact details)
+```
+
+The code now loads `.env` automatically via `src/afl_predictions/config.py`.
+
 ## Model Performance
 
 **Current: 79.1% accuracy** (117/148 correct on 2025 season)
@@ -61,6 +70,12 @@ python scripts/create_odds_proxy_from_squiggle.py --year 2026
 
 # Generate predictions
 python scripts/predict_upcoming.py --year 2026
+```
+
+If you use The Odds API collector, set `THE_ODDS_API_KEY` in `.env` or pass `--api-key`:
+
+```bash
+python scripts/collect_odds.py --fetch-current
 ```
 
 See [notes/2026_deployment_guide.md](notes/2026_deployment_guide.md) for the full weekly workflow.

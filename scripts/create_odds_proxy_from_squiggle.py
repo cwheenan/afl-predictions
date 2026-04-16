@@ -21,31 +21,9 @@ from typing import Dict, List, Optional
 import requests
 from sqlalchemy import and_
 
+from afl_predictions.config import SQUIGGLE_USER_AGENT
 from afl_predictions.db import get_engine, get_session, Match, MatchOdds
-
-
-def parse_date_string(date_str: str) -> Optional[datetime]:
-    """Parse date string from database."""
-    if not date_str:
-        return None
-    
-    # Remove extra time in parentheses if present
-    date_str = date_str.split('(')[0].strip()
-    
-    formats = [
-        '%d-%b-%Y %I:%M %p',
-        '%a, %d-%b-%Y %I:%M %p',
-        '%Y-%m-%d',
-    ]
-    
-    for fmt in formats:
-        try:
-            return datetime.strptime(date_str, fmt)
-        except ValueError:
-            continue
-    
-    return None
-
+from afl_predictions.match_identity import canonical_round_for_group, detect_current_round, find_matching_matches, parse_match_datetime, select_canonical_match
 
 def normalize_team_name(team: str) -> str:
     """Normalize team names between Squiggle and our DB."""
@@ -94,7 +72,7 @@ def fetch_squiggle_games(year: int, round_num: Optional[int] = None) -> List[Dic
         params['round'] = round_num
     
     headers = {
-        'User-Agent': 'AFL-Predictions-POC/1.0 (Educational ML project; contact via GitHub)'
+        'User-Agent': SQUIGGLE_USER_AGENT,
     }
     
     try:
@@ -115,7 +93,7 @@ def fetch_squiggle_tips(game_id: int) -> Dict:
     }
     
     headers = {
-        'User-Agent': 'AFL-Predictions-POC/1.0 (Educational ML project; contact via GitHub)'
+        'User-Agent': SQUIGGLE_USER_AGENT,
     }
     
     try:
@@ -187,13 +165,23 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
     print("Tipster consensus correlates strongly with betting markets\n")
     
     # Determine which rounds to process
+    current_year = datetime.now().year
     if rounds_range:
         start, end = map(int, rounds_range.split('-'))
         rounds = list(range(start, end + 1))
         print(f"Processing rounds {start} to {end}")
     else:
         rounds = None
-        print(f"Processing all rounds in {year}")
+        if year == current_year:
+            season_matches = db_session.query(Match).filter(Match.season == year).all()
+            current_round = detect_current_round(season_matches)
+            if current_round is not None:
+                rounds = list(range(0, current_round + 1))
+                print(f"Processing rounds 0 to {current_round} for current season")
+            else:
+                print(f"Processing all rounds in {year}")
+        else:
+            print(f"Processing all rounds in {year}")
     
     # Fetch all games for the year
     print(f"\nFetching games from Squiggle...")
@@ -222,36 +210,29 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
         
         print(f"\n[{i}/{len(all_games)}] Round {round_num}: {home_team} vs {away_team}")
         
-        # Match to our database
-        db_matches = db_session.query(Match).filter(
-            and_(
-                Match.home_team == home_team,
-                Match.away_team == away_team
-            )
-        ).all()
+        target_dt = parse_match_datetime(date_str)
+        db_matches = find_matching_matches(
+            db_session,
+            Match,
+            home_team,
+            away_team,
+            target_dt=target_dt,
+            season=year,
+        )
         
         if not db_matches:
             print(f"  ⚠ No database match found")
             matches_not_found += 1
             continue
-        
-        # Find best match by date
-        target_date = None
-        try:
-            target_date = datetime.fromisoformat(date_str.replace('Z', '+00:00')).date()
-        except:
-            pass
-        
-        best_match = None
-        if target_date and len(db_matches) > 1:
-            for db_match in db_matches:
-                parsed_date = parse_date_string(db_match.date)
-                if parsed_date and abs((parsed_date.date() - target_date).days) <= 3:
-                    best_match = db_match
-                    break
-        
-        if not best_match:
-            best_match = db_matches[0]
+
+        best_match = select_canonical_match(db_matches, target_dt)
+        canonical_round = canonical_round_for_group(db_matches, target_dt)
+        if canonical_round and str(best_match.round) != canonical_round:
+            best_match.round = canonical_round
+            db_session.add(best_match)
+
+        if len(db_matches) > 1 and canonical_round and str(round_num) != canonical_round:
+            print(f"  Note: Squiggle round {round_num} mapped to canonical round {canonical_round}")
         
         matches_found += 1
         

@@ -24,6 +24,7 @@ import joblib
 
 from afl_predictions.db import get_engine, get_session, Match, MatchOdds
 from afl_predictions.features.lineup import features_for_match
+from afl_predictions.match_identity import canonicalize_matches
 
 
 def parse_date_string(date_str: str):
@@ -56,6 +57,11 @@ def build_dataset_with_odds(session, years, include_odds_features=True):
                 
                 if has_odds:
                     matches.append(m)
+
+    matches = sorted(
+        canonicalize_matches(matches),
+        key=lambda match: (match.season or 0, match.date or '', match.home_team or '', match.away_team or ''),
+    )
     
     print(f"Found {len(matches)} matches with odds data")
     
@@ -64,6 +70,7 @@ def build_dataset_with_odds(session, years, include_odds_features=True):
     y = []
     match_ids = []
     odds_probs = []  # Store odds probabilities separately for ensemble approach
+    feature_names = []
     
     for i, m in enumerate(matches):
         if i % 50 == 0:
@@ -227,7 +234,7 @@ def evaluate_ensemble_approaches(models, X_test, y_test, odds_probs_test):
     # Try different weights
     best_acc = acc
     best_weight = 0.3
-    for odds_weight in [0.1, 0.2, 0.4, 0.5]:
+    for odds_weight in [0.1, 0.15, 0.2, 0.25, 0.4, 0.5]:
         test_prob = (probs['rf'] * (1-odds_weight) + odds_probs_test * odds_weight)
         test_pred = (test_prob >= 0.5).astype(int)
         test_acc = accuracy_score(y_test, test_pred)
@@ -239,7 +246,7 @@ def evaluate_ensemble_approaches(models, X_test, y_test, odds_probs_test):
     results['odds_as_member_best'] = best_acc
     print(f"\n  Best: RF {int((1-best_weight)*100)}% + Odds {int(best_weight*100)}%: {best_acc:.1%}")
     
-    return results, models
+    return results, models, best_weight
 
 
 def main():
@@ -273,7 +280,7 @@ def main():
     models = train_models(X_train, y_train)
     
     # Evaluate approaches
-    results, trained_models = evaluate_ensemble_approaches(
+    results, trained_models, best_odds_weight = evaluate_ensemble_approaches(
         models, X_test, y_test, odds_test
     )
     
@@ -312,6 +319,7 @@ def main():
         'results': {k: float(v) for k, v in results.items()},
         'best_approach': best_approach[0],
         'best_accuracy': float(best_approach[1]),
+        'best_odds_weight': float(best_odds_weight),
         'feature_count': X_train.shape[1],
         'feature_names': feature_names
     }

@@ -17,9 +17,14 @@ import numpy as np
 import joblib
 from datetime import datetime
 import json
+from pathlib import Path
 
 from afl_predictions.db import get_engine, get_session, Match, MatchOdds
 from afl_predictions.features.lineup import features_for_match
+from afl_predictions.match_identity import canonicalize_matches, detect_current_round
+
+
+DEFAULT_ODDS_WEIGHT = 0.40
 
 
 def parse_date_string(date_str: str):
@@ -36,13 +41,15 @@ def parse_date_string(date_str: str):
 def get_upcoming_matches(session, year=2026, round_num=None):
     """Get matches for specified year/round that need predictions."""
     all_matches = session.query(Match).all()
-    
+
     matches = []
     for m in all_matches:
         match_year = parse_date_string(m.date)
         if match_year == year:
             # Only incomplete matches (no scores yet)
             if m.home_score is None or m.away_score is None:
+                if round_num is not None and str(m.round) != str(round_num):
+                    continue
                 # Check if odds available
                 has_odds = session.query(MatchOdds).filter(
                     MatchOdds.match_id == m.match_id
@@ -50,11 +57,12 @@ def get_upcoming_matches(session, year=2026, round_num=None):
                 
                 if has_odds:
                     matches.append(m)
-    
-    return matches
+
+    canonical_matches = canonicalize_matches(matches)
+    return sorted(canonical_matches, key=lambda match: (match.date or '', match.home_team, match.away_team))
 
 
-def predict_match(model, session, match, optimal_odds_weight=0.1):
+def predict_match(model, session, match, optimal_odds_weight=DEFAULT_ODDS_WEIGHT):
     """Generate prediction for a single match."""
     try:
         # Extract features
@@ -103,8 +111,8 @@ def main():
     parser.add_argument('--round', type=int, help='Specific round number')
     parser.add_argument('--model', type=str, default='models/rf_with_odds_final.joblib',
                        help='Path to trained model')
-    parser.add_argument('--odds-weight', type=float, default=0.1,
-                       help='Weight for odds in ensemble (default: 0.1)')
+    parser.add_argument('--odds-weight', type=float, default=DEFAULT_ODDS_WEIGHT,
+                       help=f'Weight for odds in ensemble (default: {DEFAULT_ODDS_WEIGHT})')
     parser.add_argument('--output', type=str, help='Output file path')
     
     args = parser.parse_args()
@@ -117,8 +125,15 @@ def main():
     engine = get_engine()
     session = get_session(engine)
     
+    season_matches = session.query(Match).filter(Match.season == args.year).all()
+    target_round = args.round
+    if target_round is None:
+        target_round = detect_current_round(season_matches)
+
     print(f"\nLooking for upcoming matches in {args.year}...")
-    matches = get_upcoming_matches(session, args.year, args.round)
+    if target_round is not None:
+        print(f"Using round {target_round} as the current prediction round")
+    matches = get_upcoming_matches(session, args.year, target_round)
     
     if not matches:
         print("No upcoming matches found with odds data.")
@@ -178,13 +193,16 @@ def main():
         output_path = args.output
     else:
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        output_path = f'predictions_{args.year}_{timestamp}.json'
+        round_label = f"round_{int(target_round):02d}" if target_round is not None else 'round_unknown'
+        output_dir = Path('predictions') / str(args.year) / round_label
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_path = str(output_dir / f'predictions_{args.year}_{timestamp}.json')
     
     output_data = {
         'generated_at': datetime.now().isoformat(),
         'model_path': args.model,
         'year': args.year,
-        'round': args.round,
+        'round': target_round,
         'odds_weight': args.odds_weight,
         'predictions': predictions,
         'summary': {

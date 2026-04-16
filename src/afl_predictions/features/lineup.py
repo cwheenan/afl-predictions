@@ -508,6 +508,200 @@ def team_win_percentage(session, team_name: str, before_match_id: int, n: int = 
     return float(wins) / len(rows)
 
 
+def season_ladder_snapshot(session, season: int, before_match_id: int) -> Dict[str, Dict[str, float]]:
+    """Build a simple ladder table before a given match.
+
+    Ranking uses premiership points first, then percentage, then points for.
+    """
+    if season is None:
+        return {}
+
+    rows = (
+        session.query(Match)
+        .filter(
+            Match.season == season,
+            Match.match_id < before_match_id,
+            Match.home_score != None,
+            Match.away_score != None,
+        )
+        .order_by(Match.match_id.asc())
+        .all()
+    )
+
+    teams: Dict[str, Dict[str, float]] = {}
+
+    def ensure_team(team_name: str):
+        teams.setdefault(team_name, {
+            'games': 0,
+            'wins': 0,
+            'draws': 0,
+            'losses': 0,
+            'points_for': 0.0,
+            'points_against': 0.0,
+            'premiership_points': 0,
+        })
+
+    for match in rows:
+        if not match.home_team or not match.away_team:
+            continue
+
+        ensure_team(match.home_team)
+        ensure_team(match.away_team)
+
+        home_score = float(match.home_score or 0.0)
+        away_score = float(match.away_score or 0.0)
+
+        home = teams[match.home_team]
+        away = teams[match.away_team]
+        home['games'] += 1
+        away['games'] += 1
+        home['points_for'] += home_score
+        home['points_against'] += away_score
+        away['points_for'] += away_score
+        away['points_against'] += home_score
+
+        if home_score > away_score:
+            home['wins'] += 1
+            away['losses'] += 1
+            home['premiership_points'] += 4
+        elif away_score > home_score:
+            away['wins'] += 1
+            home['losses'] += 1
+            away['premiership_points'] += 4
+        else:
+            home['draws'] += 1
+            away['draws'] += 1
+            home['premiership_points'] += 2
+            away['premiership_points'] += 2
+
+    ranked = sorted(
+        teams.items(),
+        key=lambda item: (
+            -item[1]['premiership_points'],
+            -((item[1]['points_for'] / item[1]['points_against']) if item[1]['points_against'] > 0 else item[1]['points_for']),
+            -item[1]['points_for'],
+            item[0],
+        )
+    )
+
+    ladder = {}
+    for index, (team_name, stats) in enumerate(ranked, start=1):
+        percentage = (stats['points_for'] / stats['points_against']) if stats['points_against'] > 0 else stats['points_for']
+        ladder[team_name] = {
+            'position': float(index),
+            'games': float(stats['games']),
+            'wins': float(stats['wins']),
+            'premiership_points': float(stats['premiership_points']),
+            'percentage': float(percentage),
+        }
+    return ladder
+
+
+def team_ladder_position(ladder: Dict[str, Dict[str, float]], team_name: str, default_position: float = 9.5) -> float:
+    if not team_name:
+        return default_position
+    return float(ladder.get(team_name, {}).get('position', default_position))
+
+
+def contextual_form_vs_opponent_profile(
+    session,
+    team_name: str,
+    opponent_team: str,
+    before_match_id: int,
+    season: int,
+    n: int = 10,
+) -> Dict[str, float]:
+    """Measure form against opponents similar to the current opponent.
+
+    Previous results against teams with a ladder position close to the current
+    opponent get higher weight. We also track whether results were above or
+    below expectation given the team's own ladder position.
+    """
+    if not team_name or not opponent_team:
+        return {
+            'peer_win_pct': 0.5,
+            'peer_margin': 0.0,
+            'result_over_expected': 0.0,
+            'opponent_ladder_pos': 9.5,
+        }
+
+    ladder = season_ladder_snapshot(session, season, before_match_id)
+    team_pos = team_ladder_position(ladder, team_name)
+    target_opponent_pos = team_ladder_position(ladder, opponent_team)
+
+    rows = (
+        session.query(Match)
+        .filter(
+            or_(Match.home_team == team_name, Match.away_team == team_name),
+            Match.match_id < before_match_id,
+            Match.home_score != None,
+            Match.away_score != None,
+        )
+        .order_by(Match.match_id.desc())
+        .limit(n)
+        .all()
+    )
+
+    if not rows:
+        return {
+            'peer_win_pct': 0.5,
+            'peer_margin': 0.0,
+            'result_over_expected': 0.0,
+            'opponent_ladder_pos': float(target_opponent_pos),
+        }
+
+    total_weight = 0.0
+    weighted_win_score = 0.0
+    weighted_margin = 0.0
+    weighted_over_expected = 0.0
+
+    for match in rows:
+        try:
+            home_score = float(match.home_score)
+            away_score = float(match.away_score)
+        except Exception:
+            continue
+
+        if match.home_team == team_name:
+            opponent_name = match.away_team
+            team_margin = home_score - away_score
+        else:
+            opponent_name = match.home_team
+            team_margin = away_score - home_score
+
+        opponent_pos = team_ladder_position(ladder, opponent_name)
+        similarity_weight = 1.0 / (1.0 + abs(opponent_pos - target_opponent_pos))
+        total_weight += similarity_weight
+
+        if team_margin > 0:
+            result_score = 1.0
+        elif team_margin < 0:
+            result_score = 0.0
+        else:
+            result_score = 0.5
+
+        expected_score = 0.5 + max(-0.35, min(0.35, (opponent_pos - team_pos) * 0.04))
+
+        weighted_win_score += similarity_weight * result_score
+        weighted_margin += similarity_weight * team_margin
+        weighted_over_expected += similarity_weight * (result_score - expected_score)
+
+    if total_weight <= 0:
+        return {
+            'peer_win_pct': 0.5,
+            'peer_margin': 0.0,
+            'result_over_expected': 0.0,
+            'opponent_ladder_pos': float(target_opponent_pos),
+        }
+
+    return {
+        'peer_win_pct': float(weighted_win_score / total_weight),
+        'peer_margin': float(weighted_margin / total_weight),
+        'result_over_expected': float(weighted_over_expected / total_weight),
+        'opponent_ladder_pos': float(target_opponent_pos),
+    }
+
+
 def head_to_head_record(session, home_team: str, away_team: str, before_match_id: int, n: int = 10) -> float:
     """Compute win percentage for home_team against away_team in their last n meetings.
     
@@ -688,6 +882,8 @@ def features_for_match(session, match_id: int) -> Dict[str, float]:
     if m is None:
         raise ValueError('match not found')
 
+    ladder = season_ladder_snapshot(session, m.season, match_id)
+
     # Use historical aggregates (no leakage): compute average per-match stats
     # from the last N matches before this match for each team.
     home = team_historical_aggregates(session, m.home_team, match_id, n=5)
@@ -746,6 +942,40 @@ def features_for_match(session, match_id: int) -> Dict[str, float]:
         fv['home_venue_win_pct'] = float(venue_win_pct)
     except Exception:
         fv['home_venue_win_pct'] = 0.5
+
+    try:
+        home_ladder_pos = team_ladder_position(ladder, m.home_team)
+        away_ladder_pos = team_ladder_position(ladder, m.away_team)
+        fv['home_ladder_pos'] = float(home_ladder_pos)
+        fv['away_ladder_pos'] = float(away_ladder_pos)
+        fv['diff_ladder_pos'] = float(away_ladder_pos - home_ladder_pos)
+    except Exception:
+        fv['home_ladder_pos'] = 9.5
+        fv['away_ladder_pos'] = 9.5
+        fv['diff_ladder_pos'] = 0.0
+
+    try:
+        home_peer = contextual_form_vs_opponent_profile(session, m.home_team, m.away_team, match_id, m.season, n=10)
+        away_peer = contextual_form_vs_opponent_profile(session, m.away_team, m.home_team, match_id, m.season, n=10)
+        fv['home_peer_win_pct_10'] = float(home_peer['peer_win_pct'])
+        fv['away_peer_win_pct_10'] = float(away_peer['peer_win_pct'])
+        fv['diff_peer_win_pct_10'] = float(home_peer['peer_win_pct'] - away_peer['peer_win_pct'])
+        fv['home_peer_margin_10'] = float(home_peer['peer_margin'])
+        fv['away_peer_margin_10'] = float(away_peer['peer_margin'])
+        fv['diff_peer_margin_10'] = float(home_peer['peer_margin'] - away_peer['peer_margin'])
+        fv['home_result_over_expected_10'] = float(home_peer['result_over_expected'])
+        fv['away_result_over_expected_10'] = float(away_peer['result_over_expected'])
+        fv['diff_result_over_expected_10'] = float(home_peer['result_over_expected'] - away_peer['result_over_expected'])
+    except Exception:
+        fv['home_peer_win_pct_10'] = 0.5
+        fv['away_peer_win_pct_10'] = 0.5
+        fv['diff_peer_win_pct_10'] = 0.0
+        fv['home_peer_margin_10'] = 0.0
+        fv['away_peer_margin_10'] = 0.0
+        fv['diff_peer_margin_10'] = 0.0
+        fv['home_result_over_expected_10'] = 0.0
+        fv['away_result_over_expected_10'] = 0.0
+        fv['diff_result_over_expected_10'] = 0.0
     
     # Scoring efficiency (goals per inside 50, conversion rate approximation)
     try:
