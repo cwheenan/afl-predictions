@@ -13,6 +13,7 @@ This script will NOT fetch the target prediction round (e.g., round 6) unless
 explicitly included in the rounds argument.
 """
 import argparse
+import json
 import re
 from urllib.parse import urljoin
 from pathlib import Path
@@ -21,6 +22,18 @@ import requests
 from afl_predictions import config
 from afl_predictions.data import load_data
 from afl_predictions.db import get_engine, get_session
+
+
+def write_issue_report(report_name: str, payload: dict) -> Path:
+    reports_dir = Path('data/processed/ingestion_reports')
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    stamp = payload.get('generated_at', '').replace(':', '').replace('-', '').replace('T', '_')[:15]
+    if not stamp:
+        stamp = 'unknown'
+    out_file = reports_dir / f'{report_name}_{stamp}.json'
+    with out_file.open('w', encoding='utf-8') as fh:
+        json.dump(payload, fh, indent=2)
+    return out_file
 
 
 def parse_rounds_arg(s: str):
@@ -107,6 +120,18 @@ def main():
 
     rounds = parse_rounds_arg(args.rounds)
     urls = run(args.year, rounds, args.cache_dir, args.rate, args.max_pages)
+    issues = []
+
+    def add_issue(reason: str, message: str, url: str | None = None):
+        issues.append(
+            {
+                'phase': 'season_ingestion',
+                'reason': reason,
+                'url': url,
+                'message': message,
+            }
+        )
+
     if args.manifest:
         import csv
         with open(args.manifest, 'w', newline='', encoding='utf8') as fh:
@@ -118,6 +143,19 @@ def main():
 
     if args.dry_run:
         print('Dry run complete; no pages fetched')
+        report = {
+            'generated_at': datetime_now_iso(),
+            'script': 'ingest_season.py',
+            'season': args.year,
+            'rounds': rounds,
+            'summary': {
+                'total_issues': len(issues),
+                'by_reason': summarize_reasons(issues),
+            },
+            'issues': issues,
+        }
+        report_path = write_issue_report('ingest_season_issues', report)
+        print(f'Issue report saved to: {report_path}')
         return
 
     # Not dry-run: fetch, cache, and parse
@@ -131,18 +169,39 @@ def main():
         to_fetch = urls
 
     print(f'Fetching {len(to_fetch)} pages (rate={args.rate}s)')
+    if not to_fetch:
+        add_issue('no_pages_to_fetch', 'No pages remained to fetch after resume filter')
     load_data.fetch_many(to_fetch, args.cache_dir, rate_limit_sec=args.rate)
 
     # parse and upsert these tokens
     df = load_data.list_cached_matches(args.cache_dir)
     selected_tokens = []
+    missing_cached_urls = []
     for u in urls:
         row = df[df['url'] == u]
         if not row.empty:
             selected_tokens.append(row.iloc[0]['token'])
+        else:
+            missing_cached_urls.append(u)
+
+    for u in missing_cached_urls:
+        add_issue('missing_cached_token_after_fetch', 'URL missing from cache index after fetch', u)
 
     if not selected_tokens:
         print('No cached tokens found after fetching — aborting')
+        report = {
+            'generated_at': datetime_now_iso(),
+            'script': 'ingest_season.py',
+            'season': args.year,
+            'rounds': rounds,
+            'summary': {
+                'total_issues': len(issues),
+                'by_reason': summarize_reasons(issues),
+            },
+            'issues': issues,
+        }
+        report_path = write_issue_report('ingest_season_issues', report)
+        print(f'Issue report saved to: {report_path}')
         return
 
     # parse and upsert these tokens
@@ -158,6 +217,34 @@ def main():
             parse_and_upsert(args.cache_dir, t, session)
         except Exception as e:
             print('Failed to parse token', t, e)
+            add_issue('parse_and_upsert_failed', f'Failed to parse token {t}: {e}')
+
+    report = {
+        'generated_at': datetime_now_iso(),
+        'script': 'ingest_season.py',
+        'season': args.year,
+        'rounds': rounds,
+        'summary': {
+            'total_issues': len(issues),
+            'by_reason': summarize_reasons(issues),
+        },
+        'issues': issues,
+    }
+    report_path = write_issue_report('ingest_season_issues', report)
+    print(f'Issue report saved to: {report_path}')
+
+
+def summarize_reasons(issues: list[dict]) -> dict:
+    counts = {}
+    for i in issues:
+        reason = str(i.get('reason'))
+        counts[reason] = counts.get(reason, 0) + 1
+    return counts
+
+
+def datetime_now_iso() -> str:
+    from datetime import datetime
+    return datetime.now().isoformat()
 
 
 if __name__ == '__main__':

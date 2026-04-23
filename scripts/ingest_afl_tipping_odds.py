@@ -152,6 +152,37 @@ def ingest_afl_tipping_odds(
     updated = 0
     skipped = 0
     unmatched = 0
+    issues: List[Dict[str, object]] = []
+
+    def issue_phase(game_status: str) -> str:
+        return 'previous_matches' if game_status == 'completed' else 'upcoming_matches'
+
+    def record_issue(
+        *,
+        reason: str,
+        game_id: Optional[int],
+        game_status: str,
+        home_id: Optional[int],
+        away_id: Optional[int],
+        home_team: Optional[str],
+        away_team: Optional[str],
+        message: str,
+        game_date: Optional[str],
+    ) -> None:
+        issues.append(
+            {
+                'phase': issue_phase(game_status),
+                'reason': reason,
+                'game_id': game_id,
+                'status': game_status,
+                'home_id': home_id,
+                'away_id': away_id,
+                'home_team': home_team,
+                'away_team': away_team,
+                'date': game_date,
+                'message': message,
+            }
+        )
 
     print(f'Checksums URL: {CHECKSUMS_URL}')
     print(f'Rounds URL:    {rounds_url}')
@@ -171,19 +202,55 @@ def ingest_afl_tipping_odds(
         home_team = squad_lookup.get(home_id)
         away_team = squad_lookup.get(away_id)
         if not home_team or not away_team:
-            print(f'- Skip game {game_id}: missing squad mapping (homeId={home_id}, awayId={away_id})')
+            msg = f'- Skip game {game_id}: missing squad mapping (homeId={home_id}, awayId={away_id})'
+            print(msg)
+            record_issue(
+                reason='missing_squad_mapping',
+                game_id=game_id,
+                game_status=game_status,
+                home_id=home_id,
+                away_id=away_id,
+                home_team=home_team,
+                away_team=away_team,
+                message=msg,
+                game_date=game.get('date'),
+            )
             skipped += 1
             continue
 
         if not include_completed and game_status == 'completed':
-            print(f'- Skip game {game_id}: completed ({home_team} vs {away_team})')
+            msg = f'- Skip game {game_id}: completed ({home_team} vs {away_team})'
+            print(msg)
+            record_issue(
+                reason='completed_skipped',
+                game_id=game_id,
+                game_status=game_status,
+                home_id=home_id,
+                away_id=away_id,
+                home_team=home_team,
+                away_team=away_team,
+                message=msg,
+                game_date=game.get('date'),
+            )
             skipped += 1
             continue
 
         home_odds = home_odds_obj.get('value')
         away_odds = away_odds_obj.get('value')
         if home_odds is None or away_odds is None:
-            print(f'- Skip game {game_id}: missing h2h odds ({home_team} vs {away_team})')
+            msg = f'- Skip game {game_id}: missing h2h odds ({home_team} vs {away_team})'
+            print(msg)
+            record_issue(
+                reason='missing_h2h_odds',
+                game_id=game_id,
+                game_status=game_status,
+                home_id=home_id,
+                away_id=away_id,
+                home_team=home_team,
+                away_team=away_team,
+                message=msg,
+                game_date=game.get('date'),
+            )
             skipped += 1
             continue
 
@@ -191,7 +258,19 @@ def ingest_afl_tipping_odds(
             home_odds = float(home_odds)
             away_odds = float(away_odds)
         except (TypeError, ValueError):
-            print(f'- Skip game {game_id}: non-numeric odds ({home_team} vs {away_team})')
+            msg = f'- Skip game {game_id}: non-numeric odds ({home_team} vs {away_team})'
+            print(msg)
+            record_issue(
+                reason='non_numeric_odds',
+                game_id=game_id,
+                game_status=game_status,
+                home_id=home_id,
+                away_id=away_id,
+                home_team=home_team,
+                away_team=away_team,
+                message=msg,
+                game_date=game.get('date'),
+            )
             skipped += 1
             continue
 
@@ -216,13 +295,37 @@ def ingest_afl_tipping_odds(
             )
 
         if not candidates:
-            print(f'- Unmatched game {game_id}: {home_team} vs {away_team} ({game.get("date")})')
+            msg = f'- Unmatched game {game_id}: {home_team} vs {away_team} ({game.get("date")})'
+            print(msg)
+            record_issue(
+                reason='match_not_found',
+                game_id=game_id,
+                game_status=game_status,
+                home_id=home_id,
+                away_id=away_id,
+                home_team=home_team,
+                away_team=away_team,
+                message=msg,
+                game_date=game.get('date'),
+            )
             unmatched += 1
             continue
 
         match = select_canonical_match(candidates, target_dt)
         if match is None:
-            print(f'- Unmatched game {game_id}: canonical match selection failed')
+            msg = f'- Unmatched game {game_id}: canonical match selection failed'
+            print(msg)
+            record_issue(
+                reason='canonical_match_selection_failed',
+                game_id=game_id,
+                game_status=game_status,
+                home_id=home_id,
+                away_id=away_id,
+                home_team=home_team,
+                away_team=away_team,
+                message=msg,
+                game_date=game.get('date'),
+            )
             unmatched += 1
             continue
 
@@ -278,11 +381,52 @@ def ingest_afl_tipping_odds(
             )
         print(f'Raw payload snapshot saved to: {out_file}')
 
+    issues_dir = Path('data/processed/ingestion_reports')
+    issues_dir.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    issues_file = issues_dir / f'afl_tipping_issues_round_{target_round:02d}_{stamp}.json'
+
+    reason_counts: Dict[str, int] = {}
+    phase_counts: Dict[str, int] = {}
+    for issue in issues:
+        reason = str(issue.get('reason'))
+        phase = str(issue.get('phase'))
+        reason_counts[reason] = reason_counts.get(reason, 0) + 1
+        phase_counts[phase] = phase_counts.get(phase, 0) + 1
+
+    with issues_file.open('w', encoding='utf-8') as f:
+        json.dump(
+            {
+                'generated_at': datetime.now().isoformat(),
+                'source': SOURCE_NAME,
+                'season': year,
+                'round': target_round,
+                'checksums_url': CHECKSUMS_URL,
+                'rounds_url': rounds_url,
+                'squads_url': squads_url,
+                'summary': {
+                    'total_issues': len(issues),
+                    'by_phase': phase_counts,
+                    'by_reason': reason_counts,
+                },
+                'issues': issues,
+            },
+            f,
+            indent=2,
+        )
+    print(f'Issue report saved to: {issues_file}')
+
     print('\nIngestion summary:')
     print(f'- inserted rows: {inserted}')
     print(f'- replaced rows: {updated}')
     print(f'- skipped games: {skipped}')
     print(f'- unmatched games: {unmatched}')
+    print(f'- issues recorded: {len(issues)}')
+
+    if reason_counts:
+        print('\nIssue breakdown by reason:')
+        for reason in sorted(reason_counts):
+            print(f'- {reason}: {reason_counts[reason]}')
 
     return inserted
 

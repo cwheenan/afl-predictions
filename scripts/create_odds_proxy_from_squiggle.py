@@ -104,49 +104,62 @@ def fetch_squiggle_tips(game_id: int) -> Dict:
         tips = data.get('tips', [])
         if not tips:
             return {}
-        
-        # Get home and away teams from first tip
-        if not tips:
+
+        # Guard against error payloads (e.g. bad_UA) being mistaken for real tip rows.
+        valid_tips = [
+            tip for tip in tips
+            if not tip.get('error') and tip.get('hteam') and tip.get('ateam')
+        ]
+        if not valid_tips:
             return {}
-        
-        first_tip = tips[0]
+
+        first_tip = valid_tips[0]
         home_team_name = first_tip.get('hteam', '')
         away_team_name = first_tip.get('ateam', '')
-        
-        # Count tips for home vs away
-        # tip field contains the team name that was tipped
-        home_tips = sum(1 for tip in tips if tip.get('tip') == home_team_name)
-        away_tips = sum(1 for tip in tips if tip.get('tip') == away_team_name)
-        total = home_tips + away_tips  # Some might be empty/None
-        
-        if total == 0:
-            return {}
-        
-        # Convert to probabilities
-        home_prob = home_tips / total
-        away_prob = away_tips / total
-        
-        # Apply typical bookmaker margin (~6%)
-        # This makes the odds sum to implied probability > 1.0
-        margin = 1.06
-        
-        # Convert to decimal odds with margin
-        if home_prob > 0:
-            home_odds = min((1.0 / home_prob) * margin, 99.0)
+
+        # Prefer averaged per-tip home confidence when present.
+        # Squiggle hconfidence is percentage chance (0-100) for home team.
+        hconf_vals = []
+        for tip in valid_tips:
+            hconfidence = tip.get('hconfidence')
+            try:
+                if hconfidence is not None:
+                    hconf_vals.append(float(hconfidence) / 100.0)
+            except (TypeError, ValueError):
+                continue
+
+        if hconf_vals:
+            home_prob = sum(hconf_vals) / len(hconf_vals)
+            away_prob = 1.0 - home_prob
+            home_tips = sum(1 for tip in valid_tips if tip.get('tip') == home_team_name)
+            away_tips = sum(1 for tip in valid_tips if tip.get('tip') == away_team_name)
+            total = len(valid_tips)
         else:
-            home_odds = 99.0
-        
-        if away_prob > 0:
-            away_odds = min((1.0 / away_prob) * margin, 99.0)
-        else:
-            away_odds = 99.0
+            # Fallback to tip counts with Laplace smoothing to avoid 0%/100% artefacts.
+            home_tips = sum(1 for tip in valid_tips if tip.get('tip') == home_team_name)
+            away_tips = sum(1 for tip in valid_tips if tip.get('tip') == away_team_name)
+            total = home_tips + away_tips
+            if total == 0:
+                return {}
+            alpha = 1.0
+            home_prob = (home_tips + alpha) / (total + 2.0 * alpha)
+            away_prob = 1.0 - home_prob
+
+        # Clamp to keep this as a calibrated consensus prior, not pseudo-"$1.01 vs $99" odds.
+        home_prob = min(max(home_prob, 0.05), 0.95)
+        away_prob = min(max(away_prob, 0.05), 0.95)
+
+        # Store in odds columns for compatibility with existing feature pipeline.
+        # No bookmaker margin is applied because this is tip consensus, not sportsbook prices.
+        home_odds = 1.0 / home_prob
+        away_odds = 1.0 / away_prob
         
         return {
             'home_win_odds': round(home_odds, 2),
             'away_win_odds': round(away_odds, 2),
             'home_tips': home_tips,
             'away_tips': away_tips,
-            'total_tips': total,
+            'total_tips': len(valid_tips),
             'confidence': 'high' if total >= 10 else ('medium' if total >= 5 else 'low'),
         }
     
@@ -200,6 +213,34 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
     total_stored = 0
     matches_found = 0
     matches_not_found = 0
+    issues: List[Dict[str, object]] = []
+
+    def issue_phase(round_value) -> str:
+        current_year = datetime.now().year
+        if year == current_year:
+            season_matches = db_session.query(Match).filter(Match.season == year).all()
+            current_round_detected = detect_current_round(season_matches)
+            try:
+                if current_round_detected is not None and int(round_value) <= int(current_round_detected):
+                    return 'previous_matches'
+            except Exception:
+                pass
+            return 'upcoming_matches'
+        return 'historical_matches'
+
+    def add_issue(reason: str, message: str, game: Dict, home_team: str, away_team: str):
+        issues.append(
+            {
+                'phase': issue_phase(game.get('round')),
+                'reason': reason,
+                'game_id': game.get('id'),
+                'round': game.get('round'),
+                'date': game.get('date'),
+                'home_team': home_team,
+                'away_team': away_team,
+                'message': message,
+            }
+        )
     
     for i, game in enumerate(all_games, 1):
         game_id = game.get('id')
@@ -221,7 +262,9 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
         )
         
         if not db_matches:
-            print(f"  ⚠ No database match found")
+            msg = '  WARNING No database match found'
+            print(msg)
+            add_issue('db_match_not_found', msg.strip(), game, home_team, away_team)
             matches_not_found += 1
             continue
 
@@ -245,7 +288,7 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
         ).first()
         
         if existing:
-            print(f"  ✓ Odds already exist (match_id {best_match.match_id})")
+            print(f"  OK Odds already exist (match_id {best_match.match_id})")
             continue
         
         # Fetch tipster predictions
@@ -253,7 +296,9 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
         tips_data = fetch_squiggle_tips(game_id)
         
         if not tips_data:
-            print(f"  ⚠ No tips found for this game")
+            msg = '  WARNING No tips found for this game'
+            print(msg)
+            add_issue('no_tips_for_game', msg.strip(), game, home_team, away_team)
             continue
         
         # Store in database
@@ -268,7 +313,7 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
         db_session.add(match_odds)
         total_stored += 1
         
-        print(f"  ✓ Stored odds: {tips_data['home_win_odds']} - {tips_data['away_win_odds']}")
+        print(f"  OK Stored odds: {tips_data['home_win_odds']} - {tips_data['away_win_odds']}")
         print(f"    Based on {tips_data['total_tips']} tipsters ({tips_data['home_tips']}-{tips_data['away_tips']})")
         print(f"    Confidence: {tips_data['confidence']}")
         
@@ -288,6 +333,37 @@ def create_odds_proxy_for_year(year: int, rounds_range: Optional[str] = None, te
     print(f"Matches found in DB: {matches_found}")
     print(f"Matches not found: {matches_not_found}")
     print(f"Odds records stored: {total_stored}")
+
+    reports_dir = Path('data/processed/ingestion_reports')
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    report_path = reports_dir / f'squiggle_proxy_issues_{year}_{stamp}.json'
+
+    by_reason: Dict[str, int] = {}
+    by_phase: Dict[str, int] = {}
+    for issue in issues:
+        reason = str(issue.get('reason'))
+        phase = str(issue.get('phase'))
+        by_reason[reason] = by_reason.get(reason, 0) + 1
+        by_phase[phase] = by_phase.get(phase, 0) + 1
+
+    with report_path.open('w', encoding='utf-8') as fh:
+        json.dump(
+            {
+                'generated_at': datetime.now().isoformat(),
+                'script': 'create_odds_proxy_from_squiggle.py',
+                'season': year,
+                'summary': {
+                    'total_issues': len(issues),
+                    'by_phase': by_phase,
+                    'by_reason': by_reason,
+                },
+                'issues': issues,
+            },
+            fh,
+            indent=2,
+        )
+    print(f'Issue report saved to: {report_path}')
     
     db_session.close()
 
